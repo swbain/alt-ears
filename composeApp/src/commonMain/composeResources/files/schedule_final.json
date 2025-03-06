@@ -1,0 +1,2181 @@
+[
+  {
+    "artist": "Bill Ryder-Jones",
+    "start_time": "7:00 pm",
+    "end_time": "8:15 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743116400,
+    "end_epoch": 1743120900
+  },
+  {
+    "artist": "Beth Gibbons",
+    "start_time": "9:00 pm",
+    "end_time": "11:00 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743123600,
+    "end_epoch": 1743130800
+  },
+  {
+    "artist": "Tigran Hamasyan",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743112800,
+    "end_epoch": 1743117300
+  },
+  {
+    "artist": "Charles Lloyd: Homage to Zakir Hussain",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743120900,
+    "end_epoch": 1743125400
+  },
+  {
+    "artist": "B\u00e9la Fleck, Edmar Casta\u00f1eda, Antonio S\u00e1nchez Trio",
+    "start_time": "10:30 pm",
+    "end_time": "11:45 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743129000,
+    "end_epoch": 1743133500
+  },
+  {
+    "artist": "Kate Soper\u2019s Ipsa Dixit",
+    "start_time": "7:00 pm",
+    "end_time": "8:45 pm",
+    "venue": "Bijou Theatre",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743116400,
+    "end_epoch": 1743122700
+  },
+  {
+    "artist": "Axiom 5",
+    "start_time": "10:00 pm",
+    "end_time": "11:15 pm",
+    "venue": "Bijou Theatre",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743127200,
+    "end_epoch": 1743131700
+  },
+  {
+    "artist": "Yo La Tengo",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "Mill & Mine",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743114600,
+    "end_epoch": 1743119100
+  },
+  {
+    "artist": "Tortoise",
+    "start_time": "9:00 pm",
+    "end_time": "10:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743123600,
+    "end_epoch": 1743128100
+  },
+  {
+    "artist": "DARKSIDE",
+    "start_time": "11:30 pm",
+    "end_time": "1:00 am",
+    "venue": "Mill & Mine",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743132600,
+    "end_epoch": 1743138000,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Rich Ruth",
+    "start_time": "6:15 pm",
+    "end_time": "7:30 pm",
+    "venue": "The Standard",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743113700,
+    "end_epoch": 1743118200
+  },
+  {
+    "artist": "Shelley Hirsch",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "The Standard",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743121800,
+    "end_epoch": 1743126300
+  },
+  {
+    "artist": "Username Password",
+    "start_time": "10:45 pm",
+    "end_time": "12:00 am",
+    "venue": "The Standard",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743129900,
+    "end_epoch": 1743134400,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Steve Roach",
+    "start_time": "8:00 pm",
+    "end_time": "10:00 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743120000,
+    "end_epoch": 1743127200
+  },
+  {
+    "artist": "Kramer",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743112800,
+    "end_epoch": 1743117300
+  },
+  {
+    "artist": "Astrid Sonne",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743120900,
+    "end_epoch": 1743125400
+  },
+  {
+    "artist": "Phil Cook",
+    "start_time": "10:30 pm",
+    "end_time": "11:45 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743129000,
+    "end_epoch": 1743133500
+  },
+  {
+    "artist": "Hank Roberts",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743114600,
+    "end_epoch": 1743119100
+  },
+  {
+    "artist": "Ambrose Akinmusire (solo)",
+    "start_time": "8:45 pm",
+    "end_time": "10:00 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743122700,
+    "end_epoch": 1743127200
+  },
+  {
+    "artist": "The Mockingbird by R.B. Morris & William Wright",
+    "start_time": "7:00 pm",
+    "end_time": "8:30 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743116400,
+    "end_epoch": 1743121800
+  },
+  {
+    "artist": "Sarah Rothenberg",
+    "start_time": "9:45 pm",
+    "end_time": "11:00 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743126300,
+    "end_epoch": 1743130800
+  },
+  {
+    "artist": "Marissa Nadler",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "The Point",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743112800,
+    "end_epoch": 1743117300
+  },
+  {
+    "artist": "Joy Guidry: AMEN",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "The Point",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743120900,
+    "end_epoch": 1743125400
+  },
+  {
+    "artist": "William Tyler performs\u00a0Time Indefinite",
+    "start_time": "10:30 pm",
+    "end_time": "11:45 pm",
+    "venue": "The Point",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743129000,
+    "end_epoch": 1743133500
+  },
+  {
+    "artist": "Sunny War",
+    "start_time": "6:15 pm",
+    "end_time": "7:30 pm",
+    "venue": "Jackson Terminal",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743113700,
+    "end_epoch": 1743118200
+  },
+  {
+    "artist": "Alan Sparhawk",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "Jackson Terminal",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743121800,
+    "end_epoch": 1743126300
+  },
+  {
+    "artist": "Carlos Ni\u00f1o & Friends",
+    "start_time": "10:45 pm",
+    "end_time": "12:15 am",
+    "venue": "Jackson Terminal",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743129900,
+    "end_epoch": 1743135300,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Immersion",
+    "start_time": "7:30 pm",
+    "end_time": "8:15 pm",
+    "venue": "Regas Square",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743118200,
+    "end_epoch": 1743120900
+  },
+  {
+    "artist": "SUSS",
+    "start_time": "8:15 pm",
+    "end_time": "9:00 pm",
+    "venue": "Regas Square",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743120900,
+    "end_epoch": 1743123600
+  },
+  {
+    "artist": "Nanocluster (Immersion | SUSS)",
+    "start_time": "9:00 pm",
+    "end_time": "10:00 pm",
+    "venue": "Regas Square",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743123600,
+    "end_epoch": 1743127200
+  },
+  {
+    "artist": "Joel Harrison\u2019s Alternative Guitar Summit",
+    "start_time": "7:30 pm",
+    "end_time": "9:00 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743118200,
+    "end_epoch": 1743123600
+  },
+  {
+    "artist": "Ryan Clackner\u2019s Existential Dread",
+    "start_time": "10:15 pm",
+    "end_time": "11:30 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743128100,
+    "end_epoch": 1743132600
+  },
+  {
+    "artist": "Fred Moten & Brandon Lopez",
+    "start_time": "6:00 pm",
+    "end_time": "7:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743112800,
+    "end_epoch": 1743116400
+  },
+  {
+    "artist": "Knoxville: A Musical History Tour with Jack Neely",
+    "start_time": "2:00 pm",
+    "end_time": "3:00 pm",
+    "venue": "Visit Knoxville Visitors Center",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743098400,
+    "end_epoch": 1743102000
+  },
+  {
+    "artist": "Critic\u2019s Picks",
+    "start_time": "5:00 pm",
+    "end_time": "6:00 pm",
+    "venue": "Visit Knoxville Visitors Center",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743109200,
+    "end_epoch": 1743112800
+  },
+  {
+    "artist": "Gadjo Dilo (1997)",
+    "start_time": "1:30 pm",
+    "end_time": "3:15 pm",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743096600,
+    "end_epoch": 1743102900
+  },
+  {
+    "artist": "Nosostros, la M\u00fasica (1964)",
+    "start_time": "4:30 pm",
+    "end_time": "6:00 pm",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743107400,
+    "end_epoch": 1743112800
+  },
+  {
+    "artist": "Teaches of Peaches (2024)",
+    "start_time": "2:45 pm",
+    "end_time": "4:30 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743101100,
+    "end_epoch": 1743107400
+  },
+  {
+    "artist": "The Napa State Tapes: The Cramps and The Mutants (1978/2021)",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743109200,
+    "end_epoch": 1743113700
+  },
+  {
+    "artist": "Kite Symphony",
+    "start_time": "12:00 pm",
+    "end_time": "9:00 pm",
+    "venue": "UT Downtown Gallery",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743091200,
+    "end_epoch": 1743210000,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Wayne White: BIG WORDS",
+    "start_time": "9:00 am",
+    "end_time": "9:00 pm",
+    "venue": "The Emporium",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743080400,
+    "end_epoch": 1743123600
+  },
+  {
+    "artist": "Pangrok Sulap: Malaysian Printmaking Collective",
+    "start_time": "10:00 am",
+    "end_time": "6:00 pm",
+    "venue": "RED Gallery",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743084000,
+    "end_epoch": 1743112800
+  },
+  {
+    "artist": "Violins of Hope: Strings of the Holocaust",
+    "start_time": "9:00 am",
+    "end_time": "5:00 pm",
+    "venue": "Digital Motif Gallery",
+    "date": "Thursday, March 27, 2025",
+    "start_epoch": 1743080400,
+    "end_epoch": 1743109200
+  },
+  {
+    "artist": "The Nels Cline Singers",
+    "start_time": "1:00 pm",
+    "end_time": "2:15 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743181200,
+    "end_epoch": 1743185700
+  },
+  {
+    "artist": "Sun Ra Arkestra & Yo La Tengo",
+    "start_time": "3:30 pm",
+    "end_time": "4:45 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743190200,
+    "end_epoch": 1743194700
+  },
+  {
+    "artist": "esperanza spalding",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743201000,
+    "end_epoch": 1743205500
+  },
+  {
+    "artist": "ANOHNI and the Johnsons",
+    "start_time": "9:00 pm",
+    "end_time": "11:00 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743210000,
+    "end_epoch": 1743217200
+  },
+  {
+    "artist": "Philip Glass Ensemble",
+    "start_time": "12:00 pm",
+    "end_time": "2:00 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743177600,
+    "end_epoch": 1743271200,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Meshell Ndegeocello",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743189300,
+    "end_epoch": 1743193800
+  },
+  {
+    "artist": "Jessica Pratt",
+    "start_time": "5:45 pm",
+    "end_time": "7:00 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743198300,
+    "end_epoch": 1743202800
+  },
+  {
+    "artist": "Bill Frisell \u201cIn My Dreams\u201d",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743207300,
+    "end_epoch": 1743211800
+  },
+  {
+    "artist": "Taj Mahal",
+    "start_time": "10:45 pm",
+    "end_time": "12:00 am",
+    "venue": "Tennessee Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743216300,
+    "end_epoch": 1743220800,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Immanuel Wilkins\u2019 Blues Blood",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "Bijou Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743177600,
+    "end_epoch": 1743268500,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Jeff Parker ETA IVtet",
+    "start_time": "2:45 pm",
+    "end_time": "4:00 pm",
+    "venue": "Bijou Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743187500,
+    "end_epoch": 1743192000
+  },
+  {
+    "artist": "Dawn Richard & Spencer Zahn",
+    "start_time": "5:15 pm",
+    "end_time": "6:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743196500,
+    "end_epoch": 1743201000
+  },
+  {
+    "artist": "Steve Coleman and Five Elements",
+    "start_time": "7:45 pm",
+    "end_time": "9:00 pm",
+    "venue": "Bijou Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743205500,
+    "end_epoch": 1743210000
+  },
+  {
+    "artist": "Ambrose Akinmusire: Honey from a Winter Stone",
+    "start_time": "10:15 pm",
+    "end_time": "11:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743214500,
+    "end_epoch": 1743219000
+  },
+  {
+    "artist": "Swamp Dogg",
+    "start_time": "1:30 pm",
+    "end_time": "2:45 pm",
+    "venue": "Mill & Mine",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743183000,
+    "end_epoch": 1743187500
+  },
+  {
+    "artist": "Alabaster DePlume",
+    "start_time": "4:00 pm",
+    "end_time": "5:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743192000,
+    "end_epoch": 1743196500
+  },
+  {
+    "artist": "Sam Bush Band",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "Mill & Mine",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743201000,
+    "end_epoch": 1743205500
+  },
+  {
+    "artist": "Asha Puthli",
+    "start_time": "9:00 pm",
+    "end_time": "10:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743210000,
+    "end_epoch": 1743214500
+  },
+  {
+    "artist": "Les Claypool\u2019s Bastard Jazz",
+    "start_time": "11:30 pm",
+    "end_time": "1:00 am",
+    "venue": "Mill & Mine",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743219000,
+    "end_epoch": 1743224400,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Mark Guiliana",
+    "start_time": "12:15 pm",
+    "end_time": "1:30 pm",
+    "venue": "The Standard",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743178500,
+    "end_epoch": 1743269400,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "more eaze",
+    "start_time": "2:45 pm",
+    "end_time": "4:00 pm",
+    "venue": "The Standard",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743187500,
+    "end_epoch": 1743192000
+  },
+  {
+    "artist": "Tara Clerkin Trio",
+    "start_time": "5:15 pm",
+    "end_time": "6:30 pm",
+    "venue": "The Standard",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743196500,
+    "end_epoch": 1743201000
+  },
+  {
+    "artist": "Still House Plants",
+    "start_time": "7:45 pm",
+    "end_time": "9:00 pm",
+    "venue": "The Standard",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743205500,
+    "end_epoch": 1743210000
+  },
+  {
+    "artist": "Maria Ch\u00e0vez + Victoria Shen + Mariam Rezaei",
+    "start_time": "10:15 pm",
+    "end_time": "11:30 pm",
+    "venue": "The Standard",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743214500,
+    "end_epoch": 1743219000
+  },
+  {
+    "artist": "Cowboy Sadness",
+    "start_time": "1:00 pm",
+    "end_time": "2:15 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743181200,
+    "end_epoch": 1743185700
+  },
+  {
+    "artist": "Rachika Nayar & Nina Keith",
+    "start_time": "3:30 pm",
+    "end_time": "4:45 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743190200,
+    "end_epoch": 1743194700
+  },
+  {
+    "artist": "Flore Laurentienne",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743199200,
+    "end_epoch": 1743203700
+  },
+  {
+    "artist": "Arushi Jain",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743208200,
+    "end_epoch": 1743212700
+  },
+  {
+    "artist": "Darian Donovan Thomas",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743177600,
+    "end_epoch": 1743268500,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Modney",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743186600,
+    "end_epoch": 1743191100
+  },
+  {
+    "artist": "Thor Harris",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743195600,
+    "end_epoch": 1743200100
+  },
+  {
+    "artist": "Tarta Relena",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743204600,
+    "end_epoch": 1743209100
+  },
+  {
+    "artist": "Brandon Seabrook",
+    "start_time": "1:15 pm",
+    "end_time": "2:30 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743182100,
+    "end_epoch": 1743186600
+  },
+  {
+    "artist": "Jeremiah Chiu & Marta Sofia Honer",
+    "start_time": "3:45 pm",
+    "end_time": "5:00 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743191100,
+    "end_epoch": 1743195600
+  },
+  {
+    "artist": "iiisa",
+    "start_time": "6:15 pm",
+    "end_time": "7:30 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743200100,
+    "end_epoch": 1743204600
+  },
+  {
+    "artist": "Jules Reidy",
+    "start_time": "8:45 pm",
+    "end_time": "10:00 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743209100,
+    "end_epoch": 1743213600
+  },
+  {
+    "artist": "Kelly Moran",
+    "start_time": "12:30 pm",
+    "end_time": "1:45 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743179400,
+    "end_epoch": 1743270300,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Tyshawn Sorey: Monochromatic Light (Afterlife)",
+    "start_time": "3:00 pm",
+    "end_time": "4:15 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743188400,
+    "end_epoch": 1743192900
+  },
+  {
+    "artist": "Wadada Leo Smith & RedKoral Quartet",
+    "start_time": "5:30 pm",
+    "end_time": "6:30 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743197400,
+    "end_epoch": 1743201000
+  },
+  {
+    "artist": "Tyshawn Sorey: Monochromatic Light (Afterlife)",
+    "start_time": "8:00 pm",
+    "end_time": "9:15 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743206400,
+    "end_epoch": 1743210900
+  },
+  {
+    "artist": "Cassandra Jenkins",
+    "start_time": "2:00 pm",
+    "end_time": "3:15 pm",
+    "venue": "The Point",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743184800,
+    "end_epoch": 1743189300
+  },
+  {
+    "artist": "Barry Altschul\u2019s 3 Dom Factor",
+    "start_time": "4:30 pm",
+    "end_time": "5:45 pm",
+    "venue": "The Point",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743193800,
+    "end_epoch": 1743198300
+  },
+  {
+    "artist": "Michael Hurley",
+    "start_time": "7:00 pm",
+    "end_time": "8:15 pm",
+    "venue": "The Point",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743202800,
+    "end_epoch": 1743207300
+  },
+  {
+    "artist": "SUSS: Across the Horizon Nights",
+    "start_time": "9:30 pm",
+    "end_time": "11:00 pm",
+    "venue": "The Point",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743211800,
+    "end_epoch": 1743217200
+  },
+  {
+    "artist": "Adam Rudolph: Hu Vibrational",
+    "start_time": "1:00 pm",
+    "end_time": "2:15 pm",
+    "venue": "Jackson Terminal",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743181200,
+    "end_epoch": 1743185700
+  },
+  {
+    "artist": "Dedicated Men of Zion",
+    "start_time": "3:30 pm",
+    "end_time": "4:45 pm",
+    "venue": "Jackson Terminal",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743190200,
+    "end_epoch": 1743194700
+  },
+  {
+    "artist": "Bia Ferreira",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "Jackson Terminal",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743199200,
+    "end_epoch": 1743203700
+  },
+  {
+    "artist": "Mike Reed\u2019s Separatist Party",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "Jackson Terminal",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743208200,
+    "end_epoch": 1743212700
+  },
+  {
+    "artist": "Antipop Consortium",
+    "start_time": "11:00 pm",
+    "end_time": "12:15 am",
+    "venue": "Jackson Terminal",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743217200,
+    "end_epoch": 1743221700,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Ibelisse Guardia Ferragutti & Frank Rosaly",
+    "start_time": "2:15 pm",
+    "end_time": "3:30 pm",
+    "venue": "Regas Square",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743185700,
+    "end_epoch": 1743190200
+  },
+  {
+    "artist": "Joseph Keckler",
+    "start_time": "4:45 pm",
+    "end_time": "6:00 pm",
+    "venue": "Regas Square",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743194700,
+    "end_epoch": 1743199200
+  },
+  {
+    "artist": "Squanderers",
+    "start_time": "7:15 pm",
+    "end_time": "8:30 pm",
+    "venue": "Regas Square",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743203700,
+    "end_epoch": 1743208200
+  },
+  {
+    "artist": "\u0623\u062d\u0645\u062f [Ahmed]",
+    "start_time": "9:45 pm",
+    "end_time": "11:00 pm",
+    "venue": "Regas Square",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743212700,
+    "end_epoch": 1743217200
+  },
+  {
+    "artist": "Secret Show",
+    "start_time": "2:30 pm",
+    "end_time": "3:30 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743186600,
+    "end_epoch": 1743190200
+  },
+  {
+    "artist": "Tall Tall Trees",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743195600,
+    "end_epoch": 1743200100
+  },
+  {
+    "artist": "Merce Lemon",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743204600,
+    "end_epoch": 1743209100
+  },
+  {
+    "artist": "Secret Show",
+    "start_time": "10:00 pm",
+    "end_time": "12:00 am",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743213600,
+    "end_epoch": 1743220800,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Laughter: The Best Medicine Playshop",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743174000,
+    "end_epoch": 1743177600
+  },
+  {
+    "artist": "Br\u00ecghde Chaimbeul",
+    "start_time": "1:30 pm",
+    "end_time": "2:45 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743183000,
+    "end_epoch": 1743187500
+  },
+  {
+    "artist": "Kalia Vandever",
+    "start_time": "4:00 pm",
+    "end_time": "5:15 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743192000,
+    "end_epoch": 1743196500
+  },
+  {
+    "artist": "eucademix (Yuka Honda)",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743201000,
+    "end_epoch": 1743205500
+  },
+  {
+    "artist": "Carlos Ni\u00f1o Salon Night 1: Subtle Movements Trio",
+    "start_time": "9:00 pm",
+    "end_time": "11:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743210000,
+    "end_epoch": 1743217200
+  },
+  {
+    "artist": "Conversation: Ambrose Akinmusire and Nate Chinen",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "venue": "Blue Note Lounge",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743170400,
+    "end_epoch": 1743174000
+  },
+  {
+    "artist": "Across the Horizon Presents: What is Ambient Country?",
+    "start_time": "10:30 am",
+    "end_time": "11:30 am",
+    "venue": "Venue TBA",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743172200,
+    "end_epoch": 1743175800
+  },
+  {
+    "artist": "Conversation: Barry Altschul & Ashley Kahn",
+    "start_time": "12:00 pm",
+    "end_time": "1:00 pm",
+    "venue": "Venue TBA",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743177600,
+    "end_epoch": 1743267600,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "A Journey from Space Music to Ambient & Beyond with Steve Roach",
+    "start_time": "1:30 pm",
+    "end_time": "2:30 pm",
+    "venue": "Venue TBA",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743183000,
+    "end_epoch": 1743186600
+  },
+  {
+    "artist": "Essential Tremors: Ian Lynch",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "venue": "Visit Knoxville Visitors Center",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743174000,
+    "end_epoch": 1743177600
+  },
+  {
+    "artist": "Conversation: Dawn Richard & Marcus J. Moore",
+    "start_time": "12:30 pm",
+    "end_time": "1:30 pm",
+    "venue": "Visit Knoxville Visitors Center",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743179400,
+    "end_epoch": 1743269400,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "The Harder They Come (1972)",
+    "start_time": "9:00 am",
+    "end_time": "10:45 am",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743166800,
+    "end_epoch": 1743173100
+  },
+  {
+    "artist": "Jimi Hendrix (1973)",
+    "start_time": "11:30 am",
+    "end_time": "1:15 pm",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743175800,
+    "end_epoch": 1743182100
+  },
+  {
+    "artist": "ENO (2024)",
+    "start_time": "10:00 am",
+    "end_time": "12:00 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743170400,
+    "end_epoch": 1743177600
+  },
+  {
+    "artist": "We are Fugazi from Washington D.C. (2022)",
+    "start_time": "1:00 pm",
+    "end_time": "2:45 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743181200,
+    "end_epoch": 1743187500
+  },
+  {
+    "artist": "Kite Symphony",
+    "start_time": "12:00 pm",
+    "end_time": "9:00 pm",
+    "venue": "UT Downtown Gallery",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743177600,
+    "end_epoch": 1743296400,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Wayne White: BIG WORDS",
+    "start_time": "10:00 am",
+    "end_time": "9:00 pm",
+    "venue": "The Emporium",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743170400,
+    "end_epoch": 1743210000
+  },
+  {
+    "artist": "Pangrok Sulap: Malaysian Printmaking Collective",
+    "start_time": "10:00 am",
+    "end_time": "6:00 pm",
+    "venue": "RED Gallery",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743170400,
+    "end_epoch": 1743199200
+  },
+  {
+    "artist": "Violins of Hope: Strings of the Holocaust",
+    "start_time": "9:00 am",
+    "end_time": "5:00 pm",
+    "venue": "Digital Motif Gallery",
+    "date": "Friday, March 28, 2025",
+    "start_epoch": 1743166800,
+    "end_epoch": 1743195600
+  },
+  {
+    "artist": "Carla Kihlstedt & Present Music: intO tHe WiLd!",
+    "start_time": "1:00 pm",
+    "end_time": "3:00 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743267600,
+    "end_epoch": 1743274800
+  },
+  {
+    "artist": "Joe Lovano\u2019s Paramount Quartet",
+    "start_time": "4:30 pm",
+    "end_time": "5:45 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743280200,
+    "end_epoch": 1743284700
+  },
+  {
+    "artist": "Julien Baker & TORRES",
+    "start_time": "7:15 pm",
+    "end_time": "8:30 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743290100,
+    "end_epoch": 1743294600
+  },
+  {
+    "artist": "Waxahatchee",
+    "start_time": "9:30 pm",
+    "end_time": "11:00 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743298200,
+    "end_epoch": 1743303600
+  },
+  {
+    "artist": "Philip Glass Ensemble",
+    "start_time": "12:00 pm",
+    "end_time": "2:00 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743357600,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Julia Holter",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743275700,
+    "end_epoch": 1743280200
+  },
+  {
+    "artist": "Sun Ra Arkestra",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743285600,
+    "end_epoch": 1743290100
+  },
+  {
+    "artist": "DakhaBrakha",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743294600,
+    "end_epoch": 1743299100
+  },
+  {
+    "artist": "Arooj Aftab",
+    "start_time": "11:00 pm",
+    "end_time": "12:15 am",
+    "venue": "Tennessee Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743303600,
+    "end_epoch": 1743308100,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Eiko Ishibashi",
+    "start_time": "11:00 am",
+    "end_time": "12:15 pm",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743260400,
+    "end_epoch": 1743264900
+  },
+  {
+    "artist": "Wadada Leo Smith\u2019s Revolutionary Fire-Love",
+    "start_time": "1:30 pm",
+    "end_time": "2:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743269400,
+    "end_epoch": 1743273000
+  },
+  {
+    "artist": "Vijay Iyer & Wadada Leo Smith",
+    "start_time": "2:30 pm",
+    "end_time": "3:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743273000,
+    "end_epoch": 1743276600
+  },
+  {
+    "artist": "Sylvie Courvoisier: Chimaera",
+    "start_time": "5:30 pm",
+    "end_time": "6:45 pm",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743283800,
+    "end_epoch": 1743288300
+  },
+  {
+    "artist": "Tyshawn Sorey Trio",
+    "start_time": "8:00 pm",
+    "end_time": "9:15 pm",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743292800,
+    "end_epoch": 1743297300
+  },
+  {
+    "artist": "Jenny Scheinman\u2019s All Species Parade",
+    "start_time": "10:30 pm",
+    "end_time": "12:00 am",
+    "venue": "Bijou Theatre",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743301800,
+    "end_epoch": 1743307200,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Adam Rudolph: Sunrise Quartet",
+    "start_time": "12:45 pm",
+    "end_time": "2:00 pm",
+    "venue": "Mill & Mine",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743266700,
+    "end_epoch": 1743357600,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Beak>",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Mill & Mine",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743275700,
+    "end_epoch": 1743280200
+  },
+  {
+    "artist": "Michael Rother: The Music of Neu! and Harmonia",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743285600,
+    "end_epoch": 1743290100
+  },
+  {
+    "artist": "Lankum",
+    "start_time": "8:45 pm",
+    "end_time": "10:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743295500,
+    "end_epoch": 1743300900
+  },
+  {
+    "artist": "Free Form Funky Freqs",
+    "start_time": "11:30 pm",
+    "end_time": "12:45 am",
+    "venue": "Mill & Mine",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743305400,
+    "end_epoch": 1743309900,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Water Damage",
+    "start_time": "12:30 am",
+    "end_time": "1:45 am",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743222600,
+    "end_epoch": 1743227100
+  },
+  {
+    "artist": "Kokayi",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743354900,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Chanel Beads",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743273000,
+    "end_epoch": 1743277500
+  },
+  {
+    "artist": "Joel Harrison\u2019s Free Country",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743282000,
+    "end_epoch": 1743286500
+  },
+  {
+    "artist": "SML",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743291000,
+    "end_epoch": 1743295500
+  },
+  {
+    "artist": "Dougie Bowne & Matt Nelson",
+    "start_time": "10:00 pm",
+    "end_time": "11:15 pm",
+    "venue": "The Standard",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743300000,
+    "end_epoch": 1743304500
+  },
+  {
+    "artist": "Chuck Johnson",
+    "start_time": "12:30 pm",
+    "end_time": "1:45 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743265800,
+    "end_epoch": 1743356700,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Clarice Jensen",
+    "start_time": "3:00 pm",
+    "end_time": "4:15 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743274800,
+    "end_epoch": 1743279300
+  },
+  {
+    "artist": "William Basinski",
+    "start_time": "5:30 pm",
+    "end_time": "6:45 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743283800,
+    "end_epoch": 1743288300
+  },
+  {
+    "artist": "Steve Roach",
+    "start_time": "8:00 pm",
+    "end_time": "10:00 pm",
+    "venue": "Church Street United Methodist",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743292800,
+    "end_epoch": 1743300000
+  },
+  {
+    "artist": "Tilt",
+    "start_time": "1:00 pm",
+    "end_time": "2:15 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743267600,
+    "end_epoch": 1743272100
+  },
+  {
+    "artist": "Lia Kohl",
+    "start_time": "3:30 pm",
+    "end_time": "4:45 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743276600,
+    "end_epoch": 1743281100
+  },
+  {
+    "artist": "Lara Somogyi",
+    "start_time": "6:00 pm",
+    "end_time": "7:15 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743285600,
+    "end_epoch": 1743290100
+  },
+  {
+    "artist": "Claire Chase & Mivos Quartet",
+    "start_time": "8:30 pm",
+    "end_time": "9:45 pm",
+    "venue": "First Presbyterian Sanctuary",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743294600,
+    "end_epoch": 1743299100
+  },
+  {
+    "artist": "Steven Schick: Sarah Hennies\u2019 \u201cPortrait\u201d",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743354900,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Steven Schick: Kurt Schwitters\u2019\u201dUrsonate\u201d",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743273000,
+    "end_epoch": 1743277500
+  },
+  {
+    "artist": "Melvin Gibbs",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "First Presbyterian Chapel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743291000,
+    "end_epoch": 1743295500
+  },
+  {
+    "artist": "Billy Collins & Geoff Dyer",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743260400,
+    "end_epoch": 1743264000
+  },
+  {
+    "artist": "133 Years of Reverb",
+    "start_time": "2:00 pm",
+    "end_time": "10:00 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743271200,
+    "end_epoch": 1743300000
+  },
+  {
+    "artist": "David Grubbs",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "The Point",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743354900,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Tucker Zimmerman",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "The Point",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743273000,
+    "end_epoch": 1743277500
+  },
+  {
+    "artist": "ganavya",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "The Point",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743282000,
+    "end_epoch": 1743286500
+  },
+  {
+    "artist": "Peni Candra Rini",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "The Point",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743291000,
+    "end_epoch": 1743295500
+  },
+  {
+    "artist": "SUSS: Across the Horizon Nights",
+    "start_time": "10:00 pm",
+    "end_time": "11:30 pm",
+    "venue": "The Point",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743300000,
+    "end_epoch": 1743305400
+  },
+  {
+    "artist": "EMEL",
+    "start_time": "12:45 pm",
+    "end_time": "2:00 pm",
+    "venue": "Jackson Terminal",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743266700,
+    "end_epoch": 1743357600,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Tyshawn Sorey, King Britt & Friends",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Jackson Terminal",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743275700,
+    "end_epoch": 1743280200
+  },
+  {
+    "artist": "Maruja",
+    "start_time": "5:45 pm",
+    "end_time": "7:00 pm",
+    "venue": "Jackson Terminal",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743284700,
+    "end_epoch": 1743289200
+  },
+  {
+    "artist": "Helado Negro",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "Jackson Terminal",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743293700,
+    "end_epoch": 1743298200
+  },
+  {
+    "artist": "clipping.",
+    "start_time": "10:45 pm",
+    "end_time": "12:00 am",
+    "venue": "Jackson Terminal",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743302700,
+    "end_epoch": 1743307200,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Kris Davis Trio",
+    "start_time": "12:00 pm",
+    "end_time": "1:15 pm",
+    "venue": "Regas Square",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743354900,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Luke Stewart Silt Trio",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "Regas Square",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743273000,
+    "end_epoch": 1743277500
+  },
+  {
+    "artist": "Zeena Parkins",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "Regas Square",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743282000,
+    "end_epoch": 1743286500
+  },
+  {
+    "artist": "Fay Victor: Herbie Nichols SUNG",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "Regas Square",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743291000,
+    "end_epoch": 1743295500
+  },
+  {
+    "artist": "\u0623\u062d\u0645\u062f [Ahmed]",
+    "start_time": "10:00 pm",
+    "end_time": "11:15 pm",
+    "venue": "Regas Square",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743300000,
+    "end_epoch": 1743304500
+  },
+  {
+    "artist": "Br\u00ecghde Chaimbeul",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743275700,
+    "end_epoch": 1743280200
+  },
+  {
+    "artist": "Secret Show",
+    "start_time": "5:45 pm",
+    "end_time": "7:00 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743284700,
+    "end_epoch": 1743289200
+  },
+  {
+    "artist": "Wendy Eisenberg",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743293700,
+    "end_epoch": 1743298200
+  },
+  {
+    "artist": "Larry & Joe",
+    "start_time": "10:45 pm",
+    "end_time": "12:00 am",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743302700,
+    "end_epoch": 1743307200,
+    "crosses_midnight": true
+  },
+  {
+    "artist": "Laughter: The Best Medicine Playshop",
+    "start_time": "11:00 am",
+    "end_time": "12:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743260400,
+    "end_epoch": 1743264000
+  },
+  {
+    "artist": "Allison de Groot & Tatiana Hargreaves",
+    "start_time": "1:30 pm",
+    "end_time": "2:45 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743269400,
+    "end_epoch": 1743273900
+  },
+  {
+    "artist": "June McDoom",
+    "start_time": "4:00 pm",
+    "end_time": "4:45 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743278400,
+    "end_epoch": 1743281100
+  },
+  {
+    "artist": "Fred Moten & Brandon Lopez",
+    "start_time": "6:30 pm",
+    "end_time": "7:45 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743287400,
+    "end_epoch": 1743291900
+  },
+  {
+    "artist": "Carlos Ni\u00f1o Salon Night 2: First Time Trio",
+    "start_time": "9:00 pm",
+    "end_time": "11:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743296400,
+    "end_epoch": 1743303600
+  },
+  {
+    "artist": "Breaking Boundaries: Claire Chase & Tyshawn Sorey w/ Nate Chinen",
+    "start_time": "12:00 pm",
+    "end_time": "1:00 pm",
+    "venue": "Venue TBA",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743354000,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Essential Tremors: Victoria Shen",
+    "start_time": "1:30 pm",
+    "end_time": "2:30 pm",
+    "venue": "Visit Knoxville Visitors Center",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743269400,
+    "end_epoch": 1743273000
+  },
+  {
+    "artist": "Joe\u00a0Boyd\u2019s And the Roots of Rhythm\u00a0Remain: A Journey Through Global Music",
+    "start_time": "9:00 am",
+    "end_time": "11:00 am",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743253200,
+    "end_epoch": 1743260400
+  },
+  {
+    "artist": "Swamp Dogg Gets His Pool Painted (2024)",
+    "start_time": "11:30 am",
+    "end_time": "1:00 pm",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743262200,
+    "end_epoch": 1743267600
+  },
+  {
+    "artist": "House of Direction (2024)",
+    "start_time": "9:30 am",
+    "end_time": "10:00 am",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743255000,
+    "end_epoch": 1743256800
+  },
+  {
+    "artist": "Secret Film Screening",
+    "start_time": "11:00 am",
+    "end_time": "12:30 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743260400,
+    "end_epoch": 1743265800
+  },
+  {
+    "artist": "Kite Symphony",
+    "start_time": "12:00 pm",
+    "end_time": "9:00 pm",
+    "venue": "UT Downtown Gallery",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743264000,
+    "end_epoch": 1743382800,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Wayne White: BIG WORDS",
+    "start_time": "10:00 am",
+    "end_time": "9:00 pm",
+    "venue": "The Emporium",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743256800,
+    "end_epoch": 1743296400
+  },
+  {
+    "artist": "Pangrok Sulap: Malaysian Printmaking Collective",
+    "start_time": "10:00 am",
+    "end_time": "6:00 pm",
+    "venue": "RED Gallery",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743256800,
+    "end_epoch": 1743285600
+  },
+  {
+    "artist": "Violins of Hope: Strings of the Holocaust",
+    "start_time": "9:00 am",
+    "end_time": "5:00 pm",
+    "venue": "Digital Motif Gallery",
+    "date": "Saturday, March 29, 2025",
+    "start_epoch": 1743253200,
+    "end_epoch": 1743282000
+  },
+  {
+    "artist": "Knoxville Symphony Orchestra",
+    "start_time": "2:00 pm",
+    "end_time": "3:30 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743357600,
+    "end_epoch": 1743363000
+  },
+  {
+    "artist": "Dedicated Men of Zion & Knoxville Opera Gospel Choir",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743368400,
+    "end_epoch": 1743372900
+  },
+  {
+    "artist": "Rufus Wainwright",
+    "start_time": "8:00 pm",
+    "end_time": "9:30 pm",
+    "venue": "Knoxville Civic Auditorium",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743379200,
+    "end_epoch": 1743384600
+  },
+  {
+    "artist": "Tindersticks",
+    "start_time": "2:00 pm",
+    "end_time": "3:15 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743357600,
+    "end_epoch": 1743362100
+  },
+  {
+    "artist": "Tessa Lark, Joshua Roman & Edgar Meyer",
+    "start_time": "4:30 pm",
+    "end_time": "5:45 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743366600,
+    "end_epoch": 1743371100
+  },
+  {
+    "artist": "Anoushka Shankar",
+    "start_time": "7:00 pm",
+    "end_time": "8:30 pm",
+    "venue": "Tennessee Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743375600,
+    "end_epoch": 1743381000
+  },
+  {
+    "artist": "Phantom Orchard",
+    "start_time": "12:15 pm",
+    "end_time": "1:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743351300,
+    "end_epoch": 1743442200,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Mary Lattimore",
+    "start_time": "2:45 pm",
+    "end_time": "4:00 pm",
+    "venue": "Bijou Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743360300,
+    "end_epoch": 1743364800
+  },
+  {
+    "artist": "Fieldwork (Vijay Iyer / Steve Lehman / Tyshawn Sorey)",
+    "start_time": "5:15 pm",
+    "end_time": "6:30 pm",
+    "venue": "Bijou Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743369300,
+    "end_epoch": 1743373800
+  },
+  {
+    "artist": "m\u00fam",
+    "start_time": "7:45 pm",
+    "end_time": "9:00 pm",
+    "venue": "Bijou Theatre",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743378300,
+    "end_epoch": 1743382800
+  },
+  {
+    "artist": "Lonnie Holley",
+    "start_time": "1:00 pm",
+    "end_time": "2:15 pm",
+    "venue": "Mill & Mine",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743354000,
+    "end_epoch": 1743358500
+  },
+  {
+    "artist": "Canzoniere Grecanico Salentino",
+    "start_time": "3:30 pm",
+    "end_time": "4:45 pm",
+    "venue": "Mill & Mine",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743363000,
+    "end_epoch": 1743367500
+  },
+  {
+    "artist": "Wadada Leo Smith\u2019s Radio Light & Orange Wave Electric",
+    "start_time": "6:00 pm",
+    "end_time": "7:30 pm",
+    "venue": "Mill & Mine",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743372000,
+    "end_epoch": 1743377400
+  },
+  {
+    "artist": "Explosions In The Sky",
+    "start_time": "9:00 pm",
+    "end_time": "10:30 pm",
+    "venue": "Mill & Mine",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743382800,
+    "end_epoch": 1743388200
+  },
+  {
+    "artist": "Dan Weiss Even Odds Trio",
+    "start_time": "12:15 pm",
+    "end_time": "1:30 pm",
+    "venue": "The Standard",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743351300,
+    "end_epoch": 1743442200,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Susan Alcorn Tribute",
+    "start_time": "2:45 pm",
+    "end_time": "4:00 pm",
+    "venue": "The Standard",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743360300,
+    "end_epoch": 1743364800
+  },
+  {
+    "artist": "Joan As Police Woman",
+    "start_time": "5:15 pm",
+    "end_time": "6:45 pm",
+    "venue": "The Standard",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743369300,
+    "end_epoch": 1743374700
+  },
+  {
+    "artist": "The Steve Lehman Trio + Mark Turner",
+    "start_time": "9:00 pm",
+    "end_time": "10:00 pm",
+    "venue": "The Standard",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743382800,
+    "end_epoch": 1743386400
+  },
+  {
+    "artist": "Laraaji",
+    "start_time": "2:00 pm",
+    "end_time": "3:15 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743357600,
+    "end_epoch": 1743362100
+  },
+  {
+    "artist": "Eliza McCarthy",
+    "start_time": "4:30 pm",
+    "end_time": "5:45 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743366600,
+    "end_epoch": 1743371100
+  },
+  {
+    "artist": "AMARO FREITAS",
+    "start_time": "7:00 pm",
+    "end_time": "8:15 pm",
+    "venue": "St. John's Cathedral",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743375600,
+    "end_epoch": 1743380100
+  },
+  {
+    "artist": "Marisa Anderson",
+    "start_time": "2:30 pm",
+    "end_time": "3:45 pm",
+    "venue": "The Point",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743359400,
+    "end_epoch": 1743363900
+  },
+  {
+    "artist": "Kahil El\u2019Zabar Ethnic Heritage Ensemble",
+    "start_time": "5:00 pm",
+    "end_time": "6:15 pm",
+    "venue": "The Point",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743368400,
+    "end_epoch": 1743372900
+  },
+  {
+    "artist": "Nels Cline: Consentrik Quartet",
+    "start_time": "7:30 pm",
+    "end_time": "8:45 pm",
+    "venue": "The Point",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743377400,
+    "end_epoch": 1743381900
+  },
+  {
+    "artist": "Magic Tuber Stringband",
+    "start_time": "12:45 pm",
+    "end_time": "2:00 pm",
+    "venue": "Jackson Terminal",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743353100,
+    "end_epoch": 1743444000,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Mabe Fratti",
+    "start_time": "3:15 pm",
+    "end_time": "4:30 pm",
+    "venue": "Jackson Terminal",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743362100,
+    "end_epoch": 1743366600
+  },
+  {
+    "artist": "Wyatt Ellis",
+    "start_time": "5:45 pm",
+    "end_time": "7:00 pm",
+    "venue": "Jackson Terminal",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743371100,
+    "end_epoch": 1743375600
+  },
+  {
+    "artist": "Yaya Bey",
+    "start_time": "8:15 pm",
+    "end_time": "9:30 pm",
+    "venue": "Jackson Terminal",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743380100,
+    "end_epoch": 1743384600
+  },
+  {
+    "artist": "Tashi Wada",
+    "start_time": "2:00 pm",
+    "end_time": "3:15 pm",
+    "venue": "Regas Square",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743357600,
+    "end_epoch": 1743362100
+  },
+  {
+    "artist": "Macie Stewart",
+    "start_time": "4:30 pm",
+    "end_time": "5:45 pm",
+    "venue": "Regas Square",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743366600,
+    "end_epoch": 1743371100
+  },
+  {
+    "artist": "Josh Johnson",
+    "start_time": "7:00 pm",
+    "end_time": "8:15 pm",
+    "venue": "Regas Square",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743375600,
+    "end_epoch": 1743380100
+  },
+  {
+    "artist": "Edsel Axle",
+    "start_time": "4:15 pm",
+    "end_time": "5:30 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743365700,
+    "end_epoch": 1743370200
+  },
+  {
+    "artist": "Edsel Axle",
+    "start_time": "6:45 pm",
+    "end_time": "8:00 pm",
+    "venue": "Boyd's Jig and Reel",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743374700,
+    "end_epoch": 1743379200
+  },
+  {
+    "artist": "Larry & Joe",
+    "start_time": "1:15 pm",
+    "end_time": "2:30 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743354900,
+    "end_epoch": 1743359400
+  },
+  {
+    "artist": "Mivos Quartet",
+    "start_time": "3:45 pm",
+    "end_time": "5:00 pm",
+    "venue": "Knoxville Museum of Art",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743363900,
+    "end_epoch": 1743368400
+  },
+  {
+    "artist": "1965: Sound, Fire & Revolution",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "venue": "Blue Note Lounge",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743343200,
+    "end_epoch": 1743346800
+  },
+  {
+    "artist": "Guitar Talk and Round Robin Performance",
+    "start_time": "11:30 am",
+    "end_time": "1:30 pm",
+    "venue": "Blue Note Lounge",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743348600,
+    "end_epoch": 1743355800
+  },
+  {
+    "artist": "Dust-to-Digital Presents: Terika Dean & Lance Ledbetter",
+    "start_time": "10:00 am",
+    "end_time": "11:00 am",
+    "venue": "Venue TBA",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743343200,
+    "end_epoch": 1743346800
+  },
+  {
+    "artist": "Conversation: Joe Boyd & Ann Powers",
+    "start_time": "12:00 pm",
+    "end_time": "1:00 pm",
+    "venue": "Venue TBA",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743350400,
+    "end_epoch": 1743440400,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Soundtrack to a Coup d\u2019Etat (2024)",
+    "start_time": "12:00 pm",
+    "end_time": "2:30 pm",
+    "venue": "Regal Riviera Cinema 2",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743350400,
+    "end_epoch": 1743445800,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Amazing Grace (2018)",
+    "start_time": "9:00 am",
+    "end_time": "11:00 am",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743339600,
+    "end_epoch": 1743346800
+  },
+  {
+    "artist": "Across the Horizon Presents: Music for Film & TV",
+    "start_time": "11:30 am",
+    "end_time": "12:30 pm",
+    "venue": "Regal Riviera Cinema 3",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743348600,
+    "end_epoch": 1743352200
+  },
+  {
+    "artist": "Kite Symphony",
+    "start_time": "12:00 pm",
+    "end_time": "6:00 pm",
+    "venue": "UT Downtown Gallery",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743350400,
+    "end_epoch": 1743458400,
+    "crosses_midnight": false
+  },
+  {
+    "artist": "Wayne White: BIG WORDS",
+    "start_time": "10:00 am",
+    "end_time": "8:00 pm",
+    "venue": "The Emporium",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743343200,
+    "end_epoch": 1743379200
+  },
+  {
+    "artist": "Pangrok Sulap: Malaysian Printmaking Collective",
+    "start_time": "10:00 am",
+    "end_time": "6:00 pm",
+    "venue": "RED Gallery",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743343200,
+    "end_epoch": 1743372000
+  },
+  {
+    "artist": "Violins of Hope: Strings of the Holocaust",
+    "start_time": "9:00 am",
+    "end_time": "5:00 pm",
+    "venue": "Digital Motif Gallery",
+    "date": "Sunday, March 30, 2025",
+    "start_epoch": 1743339600,
+    "end_epoch": 1743368400
+  }
+]
