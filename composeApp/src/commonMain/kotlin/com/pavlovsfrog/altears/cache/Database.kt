@@ -7,7 +7,9 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
     private val dbQuery = database.appDatabaseQueries
 
     internal fun getEvents(): List<ScheduleEvent> {
-        return dbQuery.selectAllEventsInfo(::mapEvent).executeAsList()
+        return dbQuery.selectAllEventsInfo { artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight, isInMySchedule ->
+            mapEvent(artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight, isInMySchedule ?: false)
+        }.executeAsList()
     }
 
     internal fun clearAndCreateEvents(events: List<ScheduleEvent>) {
@@ -21,9 +23,18 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
                 date = event.date,
                 startEpoch = event.startEpoch,
                 endEpoch = event.endEpoch,
-                crossesMidnight = event.crossesMidnight
+                crossesMidnight = event.crossesMidnight,
+                isInMySchedule = event.isInMySchedule
             )
         }
+    }
+    
+    internal fun updateMyScheduleStatus(event: ScheduleEvent, isInMySchedule: Boolean) {
+        dbQuery.updateMyScheduleStatus(
+            isInMySchedule = isInMySchedule,
+            artist = event.artist,
+            startEpoch = event.startEpoch
+        )
     }
 
     private fun mapEvent(
@@ -34,7 +45,8 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         date: String,
         startEpoch: Long,
         endEpoch: Long,
-        crossesMidnight: Boolean?
+        crossesMidnight: Boolean?,
+        isInMySchedule: Boolean
     ): ScheduleEvent = ScheduleEvent(
         artist = artist,
         startTime = startTime,
@@ -44,5 +56,6 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
         startEpoch = startEpoch,
         endEpoch = endEpoch,
         crossesMidnight = crossesMidnight ?: false,
+        isInMySchedule = isInMySchedule
     )
 }

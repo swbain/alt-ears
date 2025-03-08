@@ -1,7 +1,6 @@
 package com.pavlovsfrog.altears
 
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -37,10 +36,8 @@ private val DarkColors = darkColorScheme(
 @Preview
 fun App(sdk: AltEarsSdk) {
     MaterialTheme(
-        colorScheme = DarkColors
+        colorScheme = DarkColors,
     ) {
-        Scaffold {
-            MainScreen(sdk)
-        }
+        MainScreen(sdk = sdk)
     }
 }

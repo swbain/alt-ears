@@ -8,12 +8,18 @@ CREATE TABLE Event (
     date TEXT NOT NULL,
     startEpoch INTEGER NOT NULL,
     endEpoch INTEGER NOT NULL,
-    crossesMidnight INTEGER AS Boolean DEFAULT NULL
+    crossesMidnight INTEGER AS Boolean DEFAULT NULL,
+    isInMySchedule INTEGER AS Boolean DEFAULT 0
 );
 
 insertEvent:
-INSERT INTO Event(artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight)
-VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO Event(artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight, isInMySchedule)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateMyScheduleStatus:
+UPDATE Event
+SET isInMySchedule = ?
+WHERE artist = ? AND startEpoch = ?;
 
 removeAllEvents:
 DELETE FROM Event;

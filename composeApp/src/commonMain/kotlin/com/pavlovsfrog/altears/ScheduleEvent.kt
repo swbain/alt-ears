@@ -12,5 +12,8 @@ data class ScheduleEvent(
     val date: String,
     @SerialName("start_epoch") val startEpoch: Long,
     @SerialName("end_epoch") val endEpoch: Long,
-    @SerialName("crosses_midnight") val crossesMidnight: Boolean = false
-)
+    @SerialName("crosses_midnight") val crossesMidnight: Boolean = false,
+    val isInMySchedule: Boolean = false
+) {
+    fun hash(): String = "$artist$startTime$endTime$venue$date"
+}

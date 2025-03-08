@@ -14,4 +14,8 @@ class AltEarsSdk(databaseDriverFactory: DatabaseDriverFactory) {
             getScheduleData().also { database.clearAndCreateEvents(it) }
         }
     }
+    
+    fun updateMyScheduleStatus(event: ScheduleEvent, isInMySchedule: Boolean) {
+        database.updateMyScheduleStatus(event, isInMySchedule)
+    }
 }

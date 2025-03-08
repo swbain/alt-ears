@@ -1,5 +1,6 @@
 package com.pavlovsfrog.altears
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,96 +9,213 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     sdk: AltEarsSdk,
-    viewModel: MainViewModel = viewModel { MainViewModel(sdk) }
+    viewModel: MainViewModel = viewModel { MainViewModel(sdk) },
+    modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    var dropdownExpanded by remember { mutableStateOf(false) }
     
-    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-        if (state.isLoading) {
-            CircularProgressIndicator()
-        } else {
-            EventList(events = state.events)
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Alt Ears") },
+                actions = {
+
+                    IconButton(onClick = { dropdownExpanded = true }) {
+                        Icon(
+                            imageVector = Icons.Default.List,
+                            contentDescription = "Switch View"
+                        )
+                    }
+
+                    DropdownMenu(
+                        expanded = dropdownExpanded,
+                        onDismissRequest = { dropdownExpanded = false }
+                    ) {
+                        DropdownMenuItem(
+                            text = { Text("Full Schedule") },
+                            onClick = {
+                                viewModel.selectTab(ScheduleTab.FULL_SCHEDULE)
+                                dropdownExpanded = false
+                            }
+                        )
+                        DropdownMenuItem(
+                            text = { Text("My Schedule") },
+                            onClick = {
+                                viewModel.selectTab(ScheduleTab.MY_SCHEDULE)
+                                dropdownExpanded = false
+                            }
+                        )
+                    }
+                },
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    titleContentColor = MaterialTheme.colorScheme.onSurface
+                )
+            )
+        }
+    ) { paddingValues ->
+        Box(
+            contentAlignment = Alignment.Center, 
+            modifier = Modifier.fillMaxSize().padding(paddingValues)
+        ) {
+            if (state.isLoading) {
+                CircularProgressIndicator()
+            } else {
+                when (state.selectedTab) {
+                    ScheduleTab.FULL_SCHEDULE -> {
+                        EventList(
+                            events = state.events,
+                            onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                        )
+                    }
+                    ScheduleTab.MY_SCHEDULE -> {
+                        if (state.events.isEmpty()) {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier.fillMaxSize().padding(16.dp)
+                            ) {
+                                Text(
+                                    text = "No events in your schedule yet.\nAdd events from the Full Schedule view.",
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    color = MaterialTheme.colorScheme.onSurface
+                                )
+                            }
+                        } else {
+                            EventList(
+                                events = state.events,
+                                onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-fun EventList(events: List<ScheduleEvent>) {
+fun EventList(
+    events: List<ScheduleEvent>,
+    onToggleMySchedule: (ScheduleEvent) -> Unit
+) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(16.dp).safeDrawingPadding()
+        modifier = Modifier.fillMaxSize().padding(16.dp),
     ) {
-        items(events) { event ->
-            EventItem(event)
+        items(events, key = { it.hash() }) { event ->
+            EventItem(
+                event = event,
+                onToggleMySchedule = onToggleMySchedule,
+                modifier = Modifier.animateItem(),
+            )
             Spacer(modifier = Modifier.height(12.dp))
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun EventItem(event: ScheduleEvent) {
+fun EventItem(
+    event: ScheduleEvent,
+    onToggleMySchedule: (ScheduleEvent) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         )
     ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = event.artist,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
-            )
-            
-            Spacer(modifier = Modifier.height(8.dp))
-            
-            Text(
-                text = event.venue,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-            
-            Spacer(modifier = Modifier.height(4.dp))
-            
-            Row {
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .weight(1f)
+            ) {
                 Text(
-                    text = event.date,
+                    text = event.artist,
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                
+                Spacer(modifier = Modifier.height(8.dp))
+                
+                Text(
+                    text = event.venue,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
                 
-                Text(
-                    text = "${event.startTime} - ${event.endTime}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                Row {
+                    Text(
+                        text = event.date,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    
+                    Spacer(modifier = Modifier.width(8.dp))
+                    
+                    Text(
+                        text = "${event.startTime} - ${event.endTime}",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            
+            IconButton(onClick = { onToggleMySchedule(event) }) {
+                Icon(
+                    imageVector = if (event.isInMySchedule) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                    contentDescription = if (event.isInMySchedule) "Remove from My Schedule" else "Add to My Schedule",
+                    tint = if (event.isInMySchedule) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
