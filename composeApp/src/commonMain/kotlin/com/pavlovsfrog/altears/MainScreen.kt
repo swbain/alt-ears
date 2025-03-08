@@ -141,13 +141,13 @@ fun EventList(
     onToggleMySchedule: (ScheduleEvent) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier.fillMaxSize(),
     ) {
         items(events, key = { it.hash() }) { event ->
             EventItem(
                 event = event,
                 onToggleMySchedule = onToggleMySchedule,
-                modifier = Modifier.animateItem(),
+                modifier = Modifier.animateItem().padding(horizontal = 16.dp),
             )
             Spacer(modifier = Modifier.height(12.dp))
         }
@@ -200,15 +200,15 @@ fun EventItem(
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
-                    
-                    Spacer(modifier = Modifier.width(8.dp))
-                    
-                    Text(
-                        text = "${event.startTime} - ${event.endTime}",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
                 }
+
+                Spacer(modifier = Modifier.height(4.dp))
+
+                Text(
+                    text = "${event.startTime} - ${event.endTime}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
             
             IconButton(onClick = { onToggleMySchedule(event) }) {
