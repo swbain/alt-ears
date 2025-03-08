@@ -14,11 +14,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -43,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -59,9 +60,15 @@ fun MainScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Alt Ears") },
+                title = { 
+                    Text(
+                        "λlt-ξars", // Using Greek lambda and xi for a hacker/unicode feel
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            letterSpacing = 1.sp
+                        ) 
+                    )
+                },
                 actions = {
-
                     IconButton(onClick = { dropdownExpanded = true }) {
                         Icon(
                             imageVector = Icons.Default.List,
@@ -74,14 +81,30 @@ fun MainScreen(
                         onDismissRequest = { dropdownExpanded = false }
                     ) {
                         DropdownMenuItem(
-                            text = { Text("Full Schedule") },
+                            text = { 
+                                Text(
+                                    "⚡ Full Schedule",
+                                    color = if (state.selectedTab == ScheduleTab.FULL_SCHEDULE) 
+                                        MaterialTheme.colorScheme.primary 
+                                    else 
+                                        MaterialTheme.colorScheme.onSurface
+                                )
+                            },
                             onClick = {
                                 viewModel.selectTab(ScheduleTab.FULL_SCHEDULE)
                                 dropdownExpanded = false
                             }
                         )
                         DropdownMenuItem(
-                            text = { Text("My Schedule") },
+                            text = { 
+                                Text(
+                                    "✦ My Schedule",
+                                    color = if (state.selectedTab == ScheduleTab.MY_SCHEDULE) 
+                                        MaterialTheme.colorScheme.primary 
+                                    else 
+                                        MaterialTheme.colorScheme.onSurface
+                                )
+                            },
                             onClick = {
                                 viewModel.selectTab(ScheduleTab.MY_SCHEDULE)
                                 dropdownExpanded = false
@@ -89,9 +112,9 @@ fun MainScreen(
                         )
                     }
                 },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
-                    titleContentColor = MaterialTheme.colorScheme.onSurface
+                    titleContentColor = MaterialTheme.colorScheme.primary
                 )
             )
         }
@@ -117,9 +140,10 @@ fun MainScreen(
                                 modifier = Modifier.fillMaxSize().padding(16.dp)
                             ) {
                                 Text(
-                                    text = "No events in your schedule yet.\nAdd events from the Full Schedule view.",
+                                    text = "「 no events added to your schedule 」\n「 add from full schedule view 」",
                                     style = MaterialTheme.typography.bodyLarge,
-                                    color = MaterialTheme.colorScheme.onSurface
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    textAlign = androidx.compose.ui.text.style.TextAlign.Center
                                 )
                             }
                         } else {
@@ -178,7 +202,7 @@ fun EventItem(
                     .weight(1f)
             ) {
                 Text(
-                    text = event.artist,
+                    text = "≫ ${event.artist}",  // Add a cool unicode arrow
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
@@ -187,25 +211,23 @@ fun EventItem(
                 Spacer(modifier = Modifier.height(8.dp))
                 
                 Text(
-                    text = event.venue,
+                    text = "⟐ ${event.venue}", // Adding a geometric unicode for venues
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
                 Spacer(modifier = Modifier.height(4.dp))
                 
-                Row {
-                    Text(
-                        text = event.date,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
+                Text(
+                    text = "⊡ ${event.date}", // Add square symbol for date
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
 
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = "${event.startTime} - ${event.endTime}",
+                    text = "⌚ ${event.startTime} → ${event.endTime}", // Clock and arrow symbols
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -213,7 +235,7 @@ fun EventItem(
             
             IconButton(onClick = { onToggleMySchedule(event) }) {
                 Icon(
-                    imageVector = if (event.isInMySchedule) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                    imageVector = if (event.isInMySchedule) Icons.Default.Remove else Icons.Default.Add,
                     contentDescription = if (event.isInMySchedule) "Remove from My Schedule" else "Add to My Schedule",
                     tint = if (event.isInMySchedule) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
