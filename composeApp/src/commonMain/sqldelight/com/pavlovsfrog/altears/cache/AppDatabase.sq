@@ -1,0 +1,23 @@
+import kotlin.Boolean;
+
+CREATE TABLE Event (
+    artist TEXT NOT NULL,
+    startTime TEXT NOT NULL,
+    endTime TEXT NOT NULL,
+    venue TEXT NOT NULL,
+    date TEXT NOT NULL,
+    startEpoch INTEGER NOT NULL,
+    endEpoch INTEGER NOT NULL,
+    crossesMidnight INTEGER AS Boolean DEFAULT NULL
+);
+
+insertEvent:
+INSERT INTO Event(artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+
+removeAllEvents:
+DELETE FROM Event;
+
+selectAllEventsInfo:
+SELECT Event.*
+FROM Event;

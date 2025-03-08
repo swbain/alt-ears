@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -26,6 +27,8 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            export(projects.shared)
+            binaryOption("bundleId", "com.pavlovsfrog.altears")
         }
     }
     
@@ -35,7 +38,13 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.android.driver)
         }
+        iosMain.dependencies {
+            implementation(libs.native.driver)
+            api(projects.shared)
+        }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -48,6 +57,9 @@ kotlin {
             implementation(projects.shared)
             implementation(libs.lifecyle.viewmodel.compose)
             implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.runtime)
+            implementation(libs.kotlinx.datetime)
         }
     }
 }
@@ -81,5 +93,13 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+}
+
+sqldelight {
+    databases {
+        create("AppDatabase") {
+            packageName.set("com.pavlovsfrog.altears.cache")
+        }
+    }
 }
 

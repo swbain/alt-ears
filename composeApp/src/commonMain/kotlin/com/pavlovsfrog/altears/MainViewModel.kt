@@ -8,15 +8,13 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class MainViewModel : ViewModel() {
+class MainViewModel(sdk: AltEarsSdk) : ViewModel() {
     private val _state = MutableStateFlow(MainState())
     val state: StateFlow<MainState> = _state.asStateFlow()
     
-    private val getScheduleData = GetScheduleData()
-    
     init {
         viewModelScope.launch {
-            val events = getScheduleData()
+            val events = sdk.getEvents()
             _state.update { it.copy(
                 isLoading = false,
                 events = events

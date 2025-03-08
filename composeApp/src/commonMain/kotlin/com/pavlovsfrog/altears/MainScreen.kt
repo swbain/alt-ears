@@ -30,7 +30,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun MainScreen(
-    viewModel: MainViewModel = viewModel { MainViewModel() }
+    sdk: AltEarsSdk,
+    viewModel: MainViewModel = viewModel { MainViewModel(sdk) }
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     

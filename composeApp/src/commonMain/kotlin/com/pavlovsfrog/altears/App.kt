@@ -35,12 +35,12 @@ private val DarkColors = darkColorScheme(
 
 @Composable
 @Preview
-fun App() {
+fun App(sdk: AltEarsSdk) {
     MaterialTheme(
         colorScheme = DarkColors
     ) {
         Scaffold {
-            MainScreen()
+            MainScreen(sdk)
         }
     }
 }
