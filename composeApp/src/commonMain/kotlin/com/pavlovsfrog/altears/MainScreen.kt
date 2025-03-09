@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
+import com.pavlovsfrog.altears.isAppInDarkTheme
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -78,19 +79,37 @@ fun MainScreen(
                     icon = { Icon(Icons.Default.Star, contentDescription = "My Schedule") },
                     label = { Text("My Schedule") },
                     selected = state.selectedTab == ScheduleTab.MY_SCHEDULE,
-                    onClick = { viewModel.selectTab(ScheduleTab.MY_SCHEDULE) }
+                    onClick = { viewModel.selectTab(ScheduleTab.MY_SCHEDULE) },
+                    colors = androidx.compose.material3.NavigationBarItemDefaults.colors(
+                        indicatorColor = if (!isAppInDarkTheme()) 
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+                        else
+                            MaterialTheme.colorScheme.primaryContainer
+                    )
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.List, contentDescription = "All Events") },
                     label = { Text("All Events") },
                     selected = state.selectedTab == ScheduleTab.FULL_SCHEDULE,
-                    onClick = { viewModel.selectTab(ScheduleTab.FULL_SCHEDULE) }
+                    onClick = { viewModel.selectTab(ScheduleTab.FULL_SCHEDULE) },
+                    colors = androidx.compose.material3.NavigationBarItemDefaults.colors(
+                        indicatorColor = if (!isAppInDarkTheme()) 
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+                        else
+                            MaterialTheme.colorScheme.primaryContainer
+                    )
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Place, contentDescription = "Venues") },
                     label = { Text("Venues") },
                     selected = state.selectedTab == ScheduleTab.VENUES,
-                    onClick = { viewModel.selectTab(ScheduleTab.VENUES) }
+                    onClick = { viewModel.selectTab(ScheduleTab.VENUES) },
+                    colors = androidx.compose.material3.NavigationBarItemDefaults.colors(
+                        indicatorColor = if (!isAppInDarkTheme()) 
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.7f)
+                        else
+                            MaterialTheme.colorScheme.primaryContainer
+                    )
                 )
             }
         }
