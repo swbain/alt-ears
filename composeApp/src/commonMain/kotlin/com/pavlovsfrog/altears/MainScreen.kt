@@ -58,11 +58,33 @@ fun MainScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     
-    // Create a list state to track scrolling
-    val listState = rememberLazyListState()
+    // Create separate list states for each tab to preserve scroll position
+    val myScheduleListState = rememberLazyListState()
+    val fullScheduleListState = rememberLazyListState()
+    val venuesListState = rememberLazyListState()
+    
+    // Get the current list state based on the selected tab
+    val currentListState = when (state.selectedTab) {
+        ScheduleTab.MY_SCHEDULE -> myScheduleListState
+        ScheduleTab.FULL_SCHEDULE -> fullScheduleListState
+        ScheduleTab.VENUES -> venuesListState
+    }
     
     // Set up the top app bar with scroll behavior
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
+    
+    // Keep track if we're scrolling up to control toolbar visibility
+    val isScrollingUp by remember {
+        derivedStateOf {
+            val firstVisibleItemIndex = currentListState.firstVisibleItemIndex
+            val firstVisibleItemScrollOffset = currentListState.firstVisibleItemScrollOffset
+            
+            // Show toolbar when at the top of list or not actively scrolling
+            (firstVisibleItemIndex == 0 && firstVisibleItemScrollOffset == 0) || 
+                !currentListState.canScrollBackward || 
+                !currentListState.isScrollInProgress
+        }
+    }
     
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -136,7 +158,7 @@ fun MainScreen(
                         EventList(
                             events = state.events,
                             onToggleMySchedule = { viewModel.toggleMySchedule(it) },
-                            listState = listState
+                            listState = fullScheduleListState
                         )
                     }
                     ScheduleTab.MY_SCHEDULE -> {
@@ -156,7 +178,7 @@ fun MainScreen(
                             EventList(
                                 events = state.events,
                                 onToggleMySchedule = { viewModel.toggleMySchedule(it) },
-                                listState = listState
+                                listState = myScheduleListState
                             )
                         }
                     }
@@ -167,7 +189,7 @@ fun MainScreen(
                             onVenueSelected = { venue -> 
                                 viewModel.selectVenue(venue)
                             },
-                            listState = listState
+                            listState = venuesListState
                         )
                         
                         // Show bottom sheet when a venue is selected
