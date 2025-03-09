@@ -11,6 +11,10 @@ internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
             mapEvent(artist, startTime, endTime, venue, date, startEpoch, endEpoch, crossesMidnight, isInMySchedule ?: false)
         }.executeAsList()
     }
+    
+    internal fun getVenues(): List<String> {
+        return dbQuery.selectAllVenues().executeAsList()
+    }
 
     internal fun clearAndCreateEvents(events: List<ScheduleEvent>) {
         dbQuery.removeAllEvents()

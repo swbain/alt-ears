@@ -27,3 +27,8 @@ DELETE FROM Event;
 selectAllEventsInfo:
 SELECT Event.*
 FROM Event;
+
+selectAllVenues:
+SELECT DISTINCT venue
+FROM Event
+ORDER BY venue;

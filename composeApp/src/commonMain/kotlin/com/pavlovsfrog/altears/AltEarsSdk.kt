@@ -15,7 +15,15 @@ class AltEarsSdk(databaseDriverFactory: DatabaseDriverFactory) {
         }
     }
     
+    fun getVenues(): List<String> {
+        return database.getVenues()
+    }
+    
     fun updateMyScheduleStatus(event: ScheduleEvent, isInMySchedule: Boolean) {
         database.updateMyScheduleStatus(event, isInMySchedule)
+    }
+    
+    fun getEventsByVenue(venue: String): List<ScheduleEvent> {
+        return database.getEvents().filter { it.venue == venue }
     }
 }

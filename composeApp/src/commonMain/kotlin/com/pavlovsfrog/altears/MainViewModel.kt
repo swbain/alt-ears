@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 enum class ScheduleTab {
+    MY_SCHEDULE,
     FULL_SCHEDULE,
-    MY_SCHEDULE
+    VENUES
 }
 
 class MainViewModel(private val sdk: AltEarsSdk) : ViewModel() {
@@ -24,15 +25,21 @@ class MainViewModel(private val sdk: AltEarsSdk) : ViewModel() {
     private fun loadEvents() {
         viewModelScope.launch {
             val events = sdk.getEvents()
+            val venues = sdk.getVenues()
             _state.update { it.copy(
                 isLoading = false,
-                allEvents = events
+                allEvents = events,
+                venues = venues
             ) }
         }
     }
     
     fun selectTab(tab: ScheduleTab) {
         _state.update { it.copy(selectedTab = tab) }
+    }
+    
+    fun selectVenue(venue: String?) {
+        _state.update { it.copy(selectedVenue = venue) }
     }
     
     fun toggleMySchedule(event: ScheduleEvent) {
@@ -57,13 +64,21 @@ class MainViewModel(private val sdk: AltEarsSdk) : ViewModel() {
 
 data class MainState(
     val isLoading: Boolean = true,
-    val selectedTab: ScheduleTab = ScheduleTab.FULL_SCHEDULE,
-    val allEvents: List<ScheduleEvent> = emptyList()
+    val selectedTab: ScheduleTab = ScheduleTab.MY_SCHEDULE,
+    val allEvents: List<ScheduleEvent> = emptyList(),
+    val venues: List<String> = emptyList(),
+    val selectedVenue: String? = null
 ) {
     val events: List<ScheduleEvent> get() = 
-        if (selectedTab == ScheduleTab.MY_SCHEDULE) {
-            allEvents.filter { it.isInMySchedule }
-        } else {
-            allEvents
+        when (selectedTab) {
+            ScheduleTab.MY_SCHEDULE -> allEvents.filter { it.isInMySchedule }
+            ScheduleTab.FULL_SCHEDULE -> allEvents
+            ScheduleTab.VENUES -> {
+                if (selectedVenue != null) {
+                    allEvents.filter { it.venue == selectedVenue }
+                } else {
+                    emptyList()
+                }
+            }
         }
 }

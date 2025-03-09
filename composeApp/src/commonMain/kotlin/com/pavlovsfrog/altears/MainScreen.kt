@@ -9,33 +9,28 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Place
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -52,7 +47,6 @@ fun MainScreen(
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    var dropdownExpanded by remember { mutableStateOf(false) }
     
     Scaffold(
         topBar = {
@@ -65,55 +59,33 @@ fun MainScreen(
                         ) 
                     )
                 },
-                actions = {
-                    IconButton(onClick = { dropdownExpanded = true }) {
-                        Icon(
-                            imageVector = Icons.Default.List,
-                            contentDescription = "Switch View"
-                        )
-                    }
-
-                    DropdownMenu(
-                        expanded = dropdownExpanded,
-                        onDismissRequest = { dropdownExpanded = false }
-                    ) {
-                        DropdownMenuItem(
-                            text = { 
-                                Text(
-                                    "⚡ Full Schedule",
-                                    color = if (state.selectedTab == ScheduleTab.FULL_SCHEDULE) 
-                                        MaterialTheme.colorScheme.primary 
-                                    else 
-                                        MaterialTheme.colorScheme.onSurface
-                                )
-                            },
-                            onClick = {
-                                viewModel.selectTab(ScheduleTab.FULL_SCHEDULE)
-                                dropdownExpanded = false
-                            }
-                        )
-                        DropdownMenuItem(
-                            text = { 
-                                Text(
-                                    "✦ My Schedule",
-                                    color = if (state.selectedTab == ScheduleTab.MY_SCHEDULE) 
-                                        MaterialTheme.colorScheme.primary 
-                                    else 
-                                        MaterialTheme.colorScheme.onSurface
-                                )
-                            },
-                            onClick = {
-                                viewModel.selectTab(ScheduleTab.MY_SCHEDULE)
-                                dropdownExpanded = false
-                            }
-                        )
-                    }
-                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
                     titleContentColor = MaterialTheme.colorScheme.primary
                 )
             )
+        },
+        bottomBar = {
+            NavigationBar {
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Star, contentDescription = "My Schedule") },
+                    label = { Text("My Schedule") },
+                    selected = state.selectedTab == ScheduleTab.MY_SCHEDULE,
+                    onClick = { viewModel.selectTab(ScheduleTab.MY_SCHEDULE) }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.List, contentDescription = "All Events") },
+                    label = { Text("All Events") },
+                    selected = state.selectedTab == ScheduleTab.FULL_SCHEDULE,
+                    onClick = { viewModel.selectTab(ScheduleTab.FULL_SCHEDULE) }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Place, contentDescription = "Venues") },
+                    label = { Text("Venues") },
+                    selected = state.selectedTab == ScheduleTab.VENUES,
+                    onClick = { viewModel.selectTab(ScheduleTab.VENUES) }
+                )
+            }
         }
     ) { paddingValues ->
         Box(
@@ -147,6 +119,38 @@ fun MainScreen(
                             EventList(
                                 events = state.events,
                                 onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                            )
+                        }
+                    }
+                    ScheduleTab.VENUES -> {
+                        if (state.selectedVenue != null) {
+                            // Display events for selected venue
+                            Column {
+                                // Back button
+                                IconButton(onClick = { 
+                                    viewModel.selectVenue(null)
+                                }) {
+                                    Icon(Icons.Default.Close, "Back to venues list")
+                                }
+                                
+                                Text(
+                                    text = "Events at ${state.selectedVenue}",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                                )
+                                
+                                EventList(
+                                    events = state.events,
+                                    onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                                )
+                            }
+                        } else {
+                            // Display venues list
+                            VenuesList(
+                                venues = state.venues,
+                                onVenueSelected = { venue -> 
+                                    viewModel.selectVenue(venue)
+                                }
                             )
                         }
                     }
@@ -240,6 +244,69 @@ fun EventItem(
                     tint = if (event.isInMySchedule) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun VenuesList(
+    venues: List<String>,
+    onVenueSelected: (String) -> Unit
+) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        // Header - manually add the first item index 0
+        itemsIndexed(listOf("header") + venues) { index, item ->
+            if (index == 0) {
+                // Header
+                Text(
+                    text = "Festival Venues",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(16.dp)
+                )
+            } else {
+                // Venue item
+                val venue = item
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                        .animateItem(),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant
+                    ),
+                    onClick = { onVenueSelected(venue) }
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Place,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.primary,
+                            modifier = Modifier.padding(end = 16.dp)
+                        )
+                        
+                        Text(
+                            text = venue,
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
+                    }
+                }
+            }
+        }
+        
+        // Footer spacer - manually add one more item
+        itemsIndexed(listOf("footer")) { _, _ ->
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
