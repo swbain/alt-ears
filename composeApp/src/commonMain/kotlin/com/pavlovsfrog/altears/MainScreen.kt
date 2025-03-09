@@ -12,11 +12,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
-import com.pavlovsfrog.altears.isAppInDarkTheme
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -28,17 +26,13 @@ import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SheetState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -226,19 +220,47 @@ fun EventList(
     events: List<ScheduleEvent>,
     onToggleMySchedule: (ScheduleEvent) -> Unit
 ) {
+    // Group events by date
+    val eventsByDate = events.groupBy { it.date }
+    
+    // Sort dates chronologically using the min startEpoch of events on each date
+    val sortedDates = eventsByDate.keys.sortedBy { date ->
+        eventsByDate[date]?.minOf { it.startEpoch } ?: 0L
+    }
+    
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
     ) {
-        itemsIndexed(events, key = { _, event -> event.hash() }) { index, event ->
-            if (index == 0) {
+        sortedDates.forEach { date ->
+            // Add day header for each date
+            item(key = "header-$date") {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp)
+                ) {
+                    // Extract just the day name (THURSDAY, FRIDAY, etc.)
+                    val dayName = date.split(",").firstOrNull()?.trim() ?: date
+                    Text(
+                        text = dayName.uppercase(),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.tertiary,
+                        fontWeight = FontWeight.Bold,
+                        letterSpacing = 1.sp
+                    )
+                }
+            }
+            
+            // Add events for this date
+            val dateEvents = eventsByDate[date] ?: emptyList()
+            itemsIndexed(dateEvents, key = { _, event -> event.hash() }) { index, event ->
+                EventItem(
+                    event = event,
+                    onToggleMySchedule = onToggleMySchedule,
+                    modifier = Modifier.animateItem().padding(horizontal = 16.dp),
+                )
                 Spacer(modifier = Modifier.height(12.dp))
             }
-            EventItem(
-                event = event,
-                onToggleMySchedule = onToggleMySchedule,
-                modifier = Modifier.animateItem().padding(horizontal = 16.dp),
-            )
-            Spacer(modifier = Modifier.height(12.dp))
         }
     }
 }
