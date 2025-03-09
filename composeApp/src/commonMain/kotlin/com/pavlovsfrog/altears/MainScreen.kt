@@ -193,7 +193,7 @@ fun MainScreen(
                                     // Get events for the selected day
                                     val targetEvents = dayEvents[selectedDay] ?: return@launch
                                     
-                                    // Find the position of the first event of the day in the flat list
+                                    // Find the position of the day header in the flat list
                                     var position = 0
                                     var foundDay = false
                                     
@@ -209,20 +209,21 @@ fun MainScreen(
                                     for (date in sortedDates) {
                                         val dayName = date.split(",").firstOrNull()?.trim() ?: date
                                         
-                                        // Add 1 for the sticky header
-                                        position += 1
-                                        
                                         if (dayName == selectedDay) {
+                                            // Found the day we want to scroll to
                                             foundDay = true
                                             break
                                         }
+                                        
+                                        // Add 1 for the sticky header of this day
+                                        position += 1
                                         
                                         // Add count of events for this day
                                         position += (eventsByDate[date]?.size ?: 0)
                                     }
                                     
                                     if (foundDay) {
-                                        // Scroll to the position
+                                        // Scroll directly to the position of the header
                                         listState.scrollToItem(position)
                                     }
                                 }
