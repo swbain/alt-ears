@@ -137,7 +137,7 @@ fun MainScreen(
                                 modifier = Modifier.fillMaxSize().padding(16.dp)
                             ) {
                                 Text(
-                                    text = "「 no events added to your schedule 」\n「 add from full schedule view 」",
+                                    text = "no events added to your schedule\nadd from full schedule view",
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = MaterialTheme.colorScheme.onSurface,
                                     textAlign = androidx.compose.ui.text.style.TextAlign.Center
