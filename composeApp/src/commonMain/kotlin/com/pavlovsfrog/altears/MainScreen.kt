@@ -1,5 +1,6 @@
 package com.pavlovsfrog.altears
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -38,6 +39,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -232,6 +234,7 @@ fun MainScreen(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun EventList(
     events: List<ScheduleEvent>,
@@ -251,15 +254,17 @@ fun EventList(
         state = listState
     ) {
         sortedDates.forEach { date ->
-            // Add day header for each date
-            item(key = "header-$date") {
+            // Extract just the day name (THURSDAY, FRIDAY, etc.)
+            val dayName = date.split(",").firstOrNull()?.trim() ?: date
+            
+            // Add sticky header for each date
+            stickyHeader(key = "header-$date") {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.background.copy(alpha = 0.95f))
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
-                    // Extract just the day name (THURSDAY, FRIDAY, etc.)
-                    val dayName = date.split(",").firstOrNull()?.trim() ?: date
                     Text(
                         text = dayName.uppercase(),
                         style = MaterialTheme.typography.labelLarge,
@@ -322,14 +327,6 @@ fun EventItem(
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 
-                Spacer(modifier = Modifier.height(4.dp))
-                
-                Text(
-                    text = "📅 ${event.date}", // Add square symbol for date
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
