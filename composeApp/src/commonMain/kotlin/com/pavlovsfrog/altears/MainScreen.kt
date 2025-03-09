@@ -1,6 +1,7 @@
 package com.pavlovsfrog.altears
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -358,11 +360,28 @@ fun EventItem(
                 )
             }
             
-            IconButton(onClick = { onToggleMySchedule(event) }) {
-                Icon(
-                    imageVector = Icons.Default.AddCircle,
-                    contentDescription = if (event.isInMySchedule) "Remove from My Schedule" else "Add to My Schedule",
-                    tint = if (event.isInMySchedule) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+            // Custom add/remove button
+            Box(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .size(48.dp) // Make it larger
+                    .background(
+                        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
+                        shape = androidx.compose.foundation.shape.CircleShape
+                    )
+                    .clickable { onToggleMySchedule(event) },
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = if (event.isInMySchedule) "−" else "+", // Use minus and plus symbols
+                    style = MaterialTheme.typography.titleLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 24.sp
+                    ),
+                    color = if (event.isInMySchedule) 
+                        MaterialTheme.colorScheme.tertiary
+                    else 
+                        MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
