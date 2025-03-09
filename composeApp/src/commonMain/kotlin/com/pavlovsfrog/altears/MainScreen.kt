@@ -434,78 +434,89 @@ fun EventList(
                     onToggleMySchedule = onToggleMySchedule,
                     modifier = Modifier.animateItem().padding(horizontal = 16.dp),
                 )
-                Spacer(modifier = Modifier.height(12.dp))
+                // Removed spacer as we now have a divider in the EventItem composable
             }
         }
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EventItem(
     event: ScheduleEvent,
     onToggleMySchedule: (ScheduleEvent) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
-        )
+    // Use a simple Row with minimal styling
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp, horizontal = 2.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
+        // Artist and event info
+        Column(
+            modifier = Modifier
+                .weight(1f)
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(16.dp)
-                    .weight(1f)
-            ) {
-                Text(
-                    text = event.artist,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                
-                Spacer(modifier = Modifier.height(8.dp))
-                
-                Text(
-                    text = "📍 ${event.venue}", // Adding a geometric unicode for venues
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                
-                Spacer(modifier = Modifier.height(4.dp))
-
-                Text(
-                    text = "⌚ ${event.startTime} → ${event.endTime}", // Clock and arrow symbols
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
+            Text(
+                text = event.artist,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+            )
             
-            // Plus/minus button with improved touch target
-            TextButton(
-                onClick = { onToggleMySchedule(event) },
-                modifier = Modifier.padding(end = 8.dp)
+            Spacer(modifier = Modifier.height(4.dp))
+            
+            Row(
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = if (event.isInMySchedule) "✓" else "+",
-                    style = MaterialTheme.typography.titleLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 28.sp
-                    ),
-                    color = if (event.isInMySchedule) 
-                        MaterialTheme.colorScheme.tertiary
-                    else 
-                        MaterialTheme.colorScheme.secondary
+                    text = "📍 ${event.venue}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+                )
+                
+                Text(
+                    text = " • ",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
+                )
+                
+                Text(
+                    text = "⌚ ${event.startTime} → ${event.endTime}",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
                 )
             }
         }
+        
+        // Plus/minus button with improved touch target
+        TextButton(
+            onClick = { onToggleMySchedule(event) },
+            modifier = Modifier.padding(end = 4.dp)
+        ) {
+            Text(
+                text = if (event.isInMySchedule) "✓" else "+",
+                style = MaterialTheme.typography.titleLarge.copy(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 28.sp
+                ),
+                color = if (event.isInMySchedule) 
+                    MaterialTheme.colorScheme.tertiary
+                else 
+                    MaterialTheme.colorScheme.secondary
+            )
+        }
     }
+    
+    // Add a subtle divider
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(1.dp)
+            .padding(horizontal = 8.dp)
+            .background(MaterialTheme.colorScheme.onBackground.copy(alpha = 0.05f))
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
