@@ -170,8 +170,9 @@ fun MainScreen(
                 ),
                 scrollBehavior = scrollBehavior,
                 actions = {
-                    // Only show day selector for schedule tabs
-                    if (state.selectedTab == ScheduleTab.MY_SCHEDULE || state.selectedTab == ScheduleTab.FULL_SCHEDULE) {
+                    // Only show day selector for schedule tabs with events
+                    if ((state.selectedTab == ScheduleTab.FULL_SCHEDULE) || 
+                        (state.selectedTab == ScheduleTab.MY_SCHEDULE && state.events.isNotEmpty())) {
                         DaySelector(
                             currentDay = state.currentVisibleDay,
                             availableDays = state.availableDays,

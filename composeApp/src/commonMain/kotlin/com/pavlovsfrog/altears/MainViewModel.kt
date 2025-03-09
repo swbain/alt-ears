@@ -90,7 +90,10 @@ data class MainState(
     // Get all available days from events, sorted chronologically
     val availableDays: List<String> get() = 
         when (selectedTab) {
-            ScheduleTab.MY_SCHEDULE -> allEvents.filter { it.isInMySchedule }
+            ScheduleTab.MY_SCHEDULE -> {
+                val myScheduleEvents = allEvents.filter { it.isInMySchedule }
+                if (myScheduleEvents.isEmpty()) emptyList() else myScheduleEvents
+            }
             ScheduleTab.FULL_SCHEDULE -> allEvents
             ScheduleTab.VENUES -> emptyList()
         }
