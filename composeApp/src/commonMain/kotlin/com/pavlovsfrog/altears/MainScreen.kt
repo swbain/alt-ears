@@ -467,27 +467,21 @@ fun EventItem(
             
             Spacer(modifier = Modifier.height(4.dp))
             
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "📍 ${event.venue}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-                )
-                
-                Text(
-                    text = " • ",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f)
-                )
-                
-                Text(
-                    text = "⌚ ${event.startTime} → ${event.endTime}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
-                )
-            }
+            // Location on its own line
+            Text(
+                text = "📍 ${event.venue}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+            )
+            
+            Spacer(modifier = Modifier.height(2.dp))
+            
+            // Time on its own line
+            Text(
+                text = "⌚ ${event.startTime} → ${event.endTime}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f)
+            )
         }
         
         // Plus/minus button with improved touch target
