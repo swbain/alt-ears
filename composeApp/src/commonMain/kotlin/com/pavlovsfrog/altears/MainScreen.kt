@@ -202,7 +202,7 @@ fun EventItem(
                     .weight(1f)
             ) {
                 Text(
-                    text = "≫ ${event.artist}",  // Add a cool unicode arrow
+                    text = event.artist,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.primary
