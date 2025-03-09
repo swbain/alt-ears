@@ -32,6 +32,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
@@ -360,28 +361,21 @@ fun EventItem(
                 )
             }
             
-            // Custom add/remove button
-            Box(
-                modifier = Modifier
-                    .padding(end = 8.dp)
-                    .size(48.dp) // Make it larger
-                    .background(
-                        color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.7f),
-                        shape = androidx.compose.foundation.shape.CircleShape
-                    )
-                    .clickable { onToggleMySchedule(event) },
-                contentAlignment = Alignment.Center
+            // Plus/minus button with improved touch target
+            TextButton(
+                onClick = { onToggleMySchedule(event) },
+                modifier = Modifier.padding(end = 8.dp)
             ) {
                 Text(
-                    text = if (event.isInMySchedule) "−" else "+", // Use minus and plus symbols
+                    text = if (event.isInMySchedule) "✓" else "+",
                     style = MaterialTheme.typography.titleLarge.copy(
                         fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp
+                        fontSize = 28.sp
                     ),
                     color = if (event.isInMySchedule) 
                         MaterialTheme.colorScheme.tertiary
                     else 
-                        MaterialTheme.colorScheme.onSurfaceVariant
+                        MaterialTheme.colorScheme.secondary
                 )
             }
         }
