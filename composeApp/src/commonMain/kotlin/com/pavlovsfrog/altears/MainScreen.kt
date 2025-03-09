@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
@@ -29,12 +31,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -50,7 +56,14 @@ fun MainScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     
+    // Create a list state to track scrolling
+    val listState = rememberLazyListState()
+    
+    // Set up the top app bar with scroll behavior
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
+    
     Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
                 title = { 
@@ -64,7 +77,8 @@ fun MainScreen(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
                     titleContentColor = MaterialTheme.colorScheme.primary
-                )
+                ),
+                scrollBehavior = scrollBehavior
             )
         },
         bottomBar = {
@@ -82,7 +96,7 @@ fun MainScreen(
                     )
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.List, contentDescription = "All Events") },
+                    icon = { Icon(Icons.AutoMirrored.Filled.List, contentDescription = "All Events") },
                     label = { Text("All Events") },
                     selected = state.selectedTab == ScheduleTab.FULL_SCHEDULE,
                     onClick = { viewModel.selectTab(ScheduleTab.FULL_SCHEDULE) },
@@ -119,7 +133,8 @@ fun MainScreen(
                     ScheduleTab.FULL_SCHEDULE -> {
                         EventList(
                             events = state.events,
-                            onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                            onToggleMySchedule = { viewModel.toggleMySchedule(it) },
+                            listState = listState
                         )
                     }
                     ScheduleTab.MY_SCHEDULE -> {
@@ -138,7 +153,8 @@ fun MainScreen(
                         } else {
                             EventList(
                                 events = state.events,
-                                onToggleMySchedule = { viewModel.toggleMySchedule(it) }
+                                onToggleMySchedule = { viewModel.toggleMySchedule(it) },
+                                listState = listState
                             )
                         }
                     }
@@ -148,7 +164,8 @@ fun MainScreen(
                             venues = state.venues,
                             onVenueSelected = { venue -> 
                                 viewModel.selectVenue(venue)
-                            }
+                            },
+                            listState = listState
                         )
                         
                         // Show bottom sheet when a venue is selected
@@ -218,7 +235,8 @@ fun MainScreen(
 @Composable
 fun EventList(
     events: List<ScheduleEvent>,
-    onToggleMySchedule: (ScheduleEvent) -> Unit
+    onToggleMySchedule: (ScheduleEvent) -> Unit,
+    listState: LazyListState = rememberLazyListState()
 ) {
     // Group events by date
     val eventsByDate = events.groupBy { it.date }
@@ -230,6 +248,7 @@ fun EventList(
     
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
+        state = listState
     ) {
         sortedDates.forEach { date ->
             // Add day header for each date
@@ -335,10 +354,12 @@ fun EventItem(
 @Composable
 fun VenuesList(
     venues: List<String>,
-    onVenueSelected: (String) -> Unit
+    onVenueSelected: (String) -> Unit,
+    listState: LazyListState = rememberLazyListState()
 ) {
     LazyColumn(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        state = listState
     ) {
         // Header - manually add the first item index 0
         itemsIndexed(listOf("header") + venues) { index, item ->
