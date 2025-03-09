@@ -11,9 +11,9 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 // More minimal, modern "hacker" inspired color scheme
 private val LightColors = lightColorScheme(
-    primary = Color(0xFF00B8D4),          // Bright cyan
+    primary = Color(0xFF0097A7),          // Darker cyan (was 00B8D4)
     onPrimary = Color(0xFF000000),        // Black text on primary
-    primaryContainer = Color(0xFFE0F7FA), // Light cyan container
+    primaryContainer = Color(0xFFB2EBF2), // Slightly darker cyan container (was E0F7FA)
     onPrimaryContainer = Color(0xFF001E26),
     secondary = Color(0xFF607D8B),        // Blue grey
     onSecondary = Color(0xFFFFFFFF),      // White text on secondary
