@@ -42,6 +42,10 @@ class MainViewModel(private val sdk: AltEarsSdk) : ViewModel() {
         _state.update { it.copy(selectedVenue = venue) }
     }
     
+    fun updateCurrentVisibleDay(day: String?) {
+        _state.update { it.copy(currentVisibleDay = day) }
+    }
+    
     fun toggleMySchedule(event: ScheduleEvent) {
         // Calculate new state
         val newState = !event.isInMySchedule
@@ -67,7 +71,8 @@ data class MainState(
     val selectedTab: ScheduleTab = ScheduleTab.MY_SCHEDULE,
     val allEvents: List<ScheduleEvent> = emptyList(),
     val venues: List<String> = emptyList(),
-    val selectedVenue: String? = null
+    val selectedVenue: String? = null,
+    val currentVisibleDay: String? = null
 ) {
     val events: List<ScheduleEvent> get() = 
         when (selectedTab) {
@@ -81,4 +86,18 @@ data class MainState(
                 }
             }
         }
+        
+    // Get all available days from events, sorted chronologically
+    val availableDays: List<String> get() = 
+        when (selectedTab) {
+            ScheduleTab.MY_SCHEDULE -> allEvents.filter { it.isInMySchedule }
+            ScheduleTab.FULL_SCHEDULE -> allEvents
+            ScheduleTab.VENUES -> emptyList()
+        }
+        .groupBy { it.date }
+        .keys
+        .sortedBy { date ->
+            events.filter { it.date == date }.minOfOrNull { it.startEpoch } ?: 0L
+        }
+        .map { it.split(",").firstOrNull()?.trim() ?: it }
 }

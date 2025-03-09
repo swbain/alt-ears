@@ -18,11 +18,14 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.automirrored.filled.List
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -40,8 +43,10 @@ import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,6 +54,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.launch
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -60,6 +66,7 @@ fun MainScreen(
     modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val scope = rememberCoroutineScope()
     
     // Create separate list states for each tab to preserve scroll position
     val myScheduleListState = rememberLazyListState()
@@ -89,6 +96,62 @@ fun MainScreen(
         }
     }
     
+    // Track currently visible day based on scroll position
+    val currentVisibleDay by remember(state.selectedTab, state.events) {
+        derivedStateOf {
+            if (state.selectedTab == ScheduleTab.VENUES || state.events.isEmpty()) {
+                return@derivedStateOf null
+            }
+            
+            val eventsByDate = state.events.groupBy { it.date }
+            val sortedDates = eventsByDate.keys.sortedBy { date ->
+                eventsByDate[date]?.minOf { it.startEpoch } ?: 0L
+            }
+            
+            // Calculate visible item information
+            val firstVisibleItemIndex = currentListState.firstVisibleItemIndex
+            
+            // If at the very top, return first day
+            if (firstVisibleItemIndex == 0) {
+                return@derivedStateOf sortedDates.firstOrNull()
+                    ?.split(",")?.firstOrNull()?.trim()
+            }
+            
+            // Map list index to date
+            var currentIndex = 0
+            for (date in sortedDates) {
+                // Add header index
+                currentIndex++
+                
+                // If the visible item is this header
+                if (currentIndex == firstVisibleItemIndex) {
+                    return@derivedStateOf date.split(",").firstOrNull()?.trim() ?: date
+                }
+                
+                // Add item indices
+                val dateEvents = eventsByDate[date] ?: emptyList()
+                val dateItemsCount = dateEvents.size
+                
+                // If the visible item is in this date's events
+                if (firstVisibleItemIndex < currentIndex + dateItemsCount) {
+                    return@derivedStateOf date.split(",").firstOrNull()?.trim() ?: date
+                }
+                
+                // Move index past this date's events
+                currentIndex += dateItemsCount
+            }
+            
+            // Default to last day if we're at the bottom
+            return@derivedStateOf sortedDates.lastOrNull()
+                ?.split(",")?.firstOrNull()?.trim()
+        }
+    }
+    
+    // Update visible day in ViewModel when it changes
+    if (state.currentVisibleDay != currentVisibleDay) {
+        viewModel.updateCurrentVisibleDay(currentVisibleDay)
+    }
+    
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
@@ -105,7 +168,68 @@ fun MainScreen(
                     containerColor = MaterialTheme.colorScheme.surface,
                     titleContentColor = MaterialTheme.colorScheme.primary
                 ),
-                scrollBehavior = scrollBehavior
+                scrollBehavior = scrollBehavior,
+                actions = {
+                    // Only show day selector for schedule tabs
+                    if (state.selectedTab == ScheduleTab.MY_SCHEDULE || state.selectedTab == ScheduleTab.FULL_SCHEDULE) {
+                        DaySelector(
+                            currentDay = state.currentVisibleDay,
+                            availableDays = state.availableDays,
+                            onDaySelected = { selectedDay ->
+                                // Find the index of the day and scroll to it
+                                val listState = if (state.selectedTab == ScheduleTab.MY_SCHEDULE) {
+                                    myScheduleListState
+                                } else {
+                                    fullScheduleListState
+                                }
+                                
+                                // Use coroutineScope to handle the scrolling
+                                scope.launch {
+                                    // Find the index of the first event for the selected day
+                                    val dayEvents = state.events.groupBy { 
+                                        it.date.split(",").firstOrNull()?.trim() ?: it.date 
+                                    }
+                                    
+                                    // Get events for the selected day
+                                    val targetEvents = dayEvents[selectedDay] ?: return@launch
+                                    
+                                    // Find the position of the first event of the day in the flat list
+                                    var position = 0
+                                    var foundDay = false
+                                    
+                                    // Group events by date for ordering
+                                    val eventsByDate = state.events.groupBy { it.date }
+                                    
+                                    // Sort dates chronologically
+                                    val sortedDates = eventsByDate.keys.sortedBy { date ->
+                                        eventsByDate[date]?.minOf { it.startEpoch } ?: 0L
+                                    }
+                                    
+                                    // Count positions until we reach our target day
+                                    for (date in sortedDates) {
+                                        val dayName = date.split(",").firstOrNull()?.trim() ?: date
+                                        
+                                        // Add 1 for the sticky header
+                                        position += 1
+                                        
+                                        if (dayName == selectedDay) {
+                                            foundDay = true
+                                            break
+                                        }
+                                        
+                                        // Add count of events for this day
+                                        position += (eventsByDate[date]?.size ?: 0)
+                                    }
+                                    
+                                    if (foundDay) {
+                                        // Scroll to the position
+                                        listState.scrollToItem(position)
+                                    }
+                                }
+                            }
+                        )
+                    }
+                }
             )
         },
         bottomBar = {
@@ -443,6 +567,59 @@ fun VenuesList(
         // Footer spacer - manually add one more item
         itemsIndexed(listOf("footer")) { _, _ ->
             Spacer(modifier = Modifier.height(16.dp))
+        }
+    }
+}
+
+@Composable
+fun DaySelector(
+    currentDay: String?,
+    availableDays: List<String>,
+    onDaySelected: (String) -> Unit
+) {
+    var isDropdownExpanded by remember { mutableStateOf(false) }
+    
+    Row(
+        modifier = Modifier
+            .clickable { isDropdownExpanded = true }
+            .padding(horizontal = 8.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        // Display current day or placeholder
+        Text(
+            text = currentDay ?: "SELECT DAY",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+        
+        Icon(
+            imageVector = Icons.Default.ArrowDropDown,
+            contentDescription = "Select day",
+            tint = MaterialTheme.colorScheme.primary
+        )
+        
+        // Dropdown menu
+        DropdownMenu(
+            expanded = isDropdownExpanded,
+            onDismissRequest = { isDropdownExpanded = false }
+        ) {
+            availableDays.forEach { day ->
+                DropdownMenuItem(
+                    text = {
+                        Text(
+                            text = day,
+                            color = if (day == currentDay) 
+                                MaterialTheme.colorScheme.primary 
+                            else 
+                                MaterialTheme.colorScheme.onSurface
+                        )
+                    },
+                    onClick = {
+                        onDaySelected(day)
+                        isDropdownExpanded = false
+                    }
+                )
+            }
         }
     }
 }
