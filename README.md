@@ -5,7 +5,7 @@ because the official festival app was no good!
 
 ## how to run
 
-- open the project in android studio, build and run `composeApp` normally for android  
+- open the project in android studio, build and run `composeApp` for android  
 - open `iosApp/iosApp.xcodeproj` in xcode to build/deploy the ios app  
 
 ## about
