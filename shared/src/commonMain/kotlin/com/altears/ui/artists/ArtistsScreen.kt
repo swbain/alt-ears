@@ -1,6 +1,7 @@
 package com.altears.ui.artists
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
@@ -37,7 +38,8 @@ fun ArtistsScreen(
     
     PullToRefreshBox(
         isRefreshing = state.isLoading,
-        onRefresh = { viewModel.onAction(ArtistsAction.Refresh) }
+        onRefresh = { viewModel.onAction(ArtistsAction.Refresh) },
+        modifier = Modifier.statusBarsPadding()
     ) {
         if (state.artists.isEmpty() && !state.isLoading) {
             Box(

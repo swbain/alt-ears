@@ -1,6 +1,7 @@
 package com.altears.ui.shows
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
@@ -25,7 +26,8 @@ fun ShowsScreen(
     
     PullToRefreshBox(
         isRefreshing = state.isLoading,
-        onRefresh = { viewModel.onAction(ShowsAction.Refresh) }
+        onRefresh = { viewModel.onAction(ShowsAction.Refresh) },
+        modifier = Modifier.statusBarsPadding()
     ) {
         if (state.shows.isEmpty() && !state.isLoading) {
             Box(
