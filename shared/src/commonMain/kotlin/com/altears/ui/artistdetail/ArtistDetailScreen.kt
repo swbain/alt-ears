@@ -1,6 +1,7 @@
 package com.altears.ui.artistdetail
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,7 +31,12 @@ fun ArtistDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(state.artist?.name ?: "") },
+                title = { 
+                    Text(
+                        text = state.artist?.name ?: "",
+                        maxLines = 1
+                    ) 
+                },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
@@ -41,9 +47,11 @@ fun ArtistDetailScreen(
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background
-                )
+                ),
+                windowInsets = TopAppBarDefaults.windowInsets
             )
-        }
+        },
+        contentWindowInsets = WindowInsets(0)
     ) { padding ->
         if (state.isLoading) {
             Box(
