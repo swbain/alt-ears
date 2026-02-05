@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Place
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -23,6 +24,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.altears.domain.usecase.GetArtistDetailUseCase
+import com.altears.domain.usecase.GetShowsByVenueUseCase
 import com.altears.domain.usecase.GetShowsUseCase
 import com.altears.domain.usecase.ToggleScheduleUseCase
 import com.altears.ui.artistdetail.ArtistDetailScreen
@@ -31,21 +33,28 @@ import com.altears.ui.artists.ArtistsScreen
 import com.altears.ui.schedule.ScheduleScreen
 import com.altears.ui.shows.ShowsScreen
 import com.altears.ui.theme.AltEarsTheme
+import com.altears.ui.venuedetail.VenueDetailScreen
+import com.altears.ui.venuedetail.VenueDetailViewModel
+import com.altears.ui.venues.VenuesScreen
 import org.koin.compose.koinInject
 
 sealed class Screen(val route: String, val title: String, val icon: ImageVector) {
     data object Artists : Screen("artists", "Artists", Icons.Default.Person)
-    data object Shows : Screen("shows", "All Shows", Icons.Default.PlayArrow)
-    data object Schedule : Screen("schedule", "My Schedule", Icons.Default.DateRange)
+    data object Shows : Screen("shows", "Shows", Icons.Default.PlayArrow)
+    data object Venues : Screen("venues", "Venues", Icons.Default.Place)
+    data object Schedule : Screen("schedule", "Schedule", Icons.Default.DateRange)
 }
 
 sealed class DetailScreen(val route: String) {
     data object ArtistDetail : DetailScreen("artist/{artistId}") {
         fun createRoute(artistId: Int) = "artist/$artistId"
     }
+    data object VenueDetail : DetailScreen("venue/{venueId}") {
+        fun createRoute(venueId: Int) = "venue/$venueId"
+    }
 }
 
-private val bottomNavItems = listOf(Screen.Artists, Screen.Shows, Screen.Schedule)
+private val bottomNavItems = listOf(Screen.Artists, Screen.Shows, Screen.Venues, Screen.Schedule)
 
 @Composable
 fun App() {
@@ -106,6 +115,14 @@ fun App() {
                     ShowsScreen()
                 }
                 
+                composable(Screen.Venues.route) {
+                    VenuesScreen(
+                        onNavigateToVenue = { venueId ->
+                            navController.navigate(DetailScreen.VenueDetail.createRoute(venueId))
+                        }
+                    )
+                }
+                
                 composable(Screen.Schedule.route) {
                     ScheduleScreen()
                 }
@@ -130,6 +147,29 @@ fun App() {
                     }
                     
                     ArtistDetailScreen(
+                        viewModel = viewModel,
+                        onNavigateBack = { navController.popBackStack() }
+                    )
+                }
+                
+                composable(
+                    route = DetailScreen.VenueDetail.route,
+                    arguments = listOf(navArgument("venueId") { type = NavType.IntType })
+                ) { backStackEntry ->
+                    val venueId = backStackEntry.arguments?.getInt("venueId") ?: return@composable
+                    
+                    val getShowsByVenueUseCase: GetShowsByVenueUseCase = koinInject()
+                    val toggleScheduleUseCase: ToggleScheduleUseCase = koinInject()
+                    
+                    val viewModel = remember(venueId) {
+                        VenueDetailViewModel(
+                            venueId = venueId,
+                            getShowsByVenueUseCase = getShowsByVenueUseCase,
+                            toggleScheduleUseCase = toggleScheduleUseCase
+                        )
+                    }
+                    
+                    VenueDetailScreen(
                         viewModel = viewModel,
                         onNavigateBack = { navController.popBackStack() }
                     )

@@ -5,11 +5,14 @@ import com.altears.data.repository.FestivalRepository
 import com.altears.domain.usecase.GetArtistDetailUseCase
 import com.altears.domain.usecase.GetArtistsUseCase
 import com.altears.domain.usecase.GetScheduleUseCase
+import com.altears.domain.usecase.GetShowsByVenueUseCase
 import com.altears.domain.usecase.GetShowsUseCase
+import com.altears.domain.usecase.GetVenuesUseCase
 import com.altears.domain.usecase.ToggleScheduleUseCase
 import com.altears.ui.artists.ArtistsViewModel
 import com.altears.ui.schedule.ScheduleViewModel
 import com.altears.ui.shows.ShowsViewModel
+import com.altears.ui.venues.VenuesViewModel
 import io.ktor.client.*
 import io.ktor.client.plugins.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -54,10 +57,13 @@ val appModule = module {
     singleOf(::GetShowsUseCase)
     singleOf(::GetScheduleUseCase)
     singleOf(::GetArtistDetailUseCase)
+    singleOf(::GetVenuesUseCase)
+    singleOf(::GetShowsByVenueUseCase)
     singleOf(::ToggleScheduleUseCase)
     
     // ViewModels
     viewModelOf(::ArtistsViewModel)
     viewModelOf(::ShowsViewModel)
     viewModelOf(::ScheduleViewModel)
+    viewModelOf(::VenuesViewModel)
 }
