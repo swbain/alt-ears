@@ -1,0 +1,30 @@
+# Built artifacts
+/build/
+*/build/
+*.apk
+*.aab
+*.ipa
+
+# Gradle
+.gradle/
+local.properties
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Kotlin/Native
+*.klib
+
+# iOS
+iosApp/Pods/
+iosApp/*.xcworkspace
+iosApp/xcuserdata/
+iosApp/DerivedData/
+iosApp/.build/
+
+# Misc
+*.log
+*.tmp

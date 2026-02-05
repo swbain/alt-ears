@@ -1,0 +1,142 @@
+-- Artists table
+CREATE TABLE Artist (
+    id INTEGER PRIMARY KEY NOT NULL,
+    title TEXT NOT NULL,
+    imageUrl TEXT,
+    iconUrl TEXT,
+    description TEXT,
+    sortOrder INTEGER NOT NULL DEFAULT 0
+);
+
+-- Shows/Gigs table
+CREATE TABLE Show (
+    id INTEGER PRIMARY KEY NOT NULL,
+    artistId INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    displayDate TEXT NOT NULL,
+    stageTitle TEXT NOT NULL,
+    startTimestamp INTEGER NOT NULL,
+    endTimestamp INTEGER NOT NULL,
+    stageId INTEGER NOT NULL,
+    dayId INTEGER NOT NULL,
+    sortOrder INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY (artistId) REFERENCES Artist(id)
+);
+
+-- Stages table
+CREATE TABLE Stage (
+    id INTEGER PRIMARY KEY NOT NULL,
+    title TEXT NOT NULL,
+    subtitle TEXT,
+    lat REAL,
+    lng REAL,
+    sortOrder INTEGER NOT NULL DEFAULT 0
+);
+
+-- Days table
+CREATE TABLE Day (
+    id INTEGER PRIMARY KEY NOT NULL,
+    startTimestamp INTEGER NOT NULL,
+    endTimestamp INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    subtitle TEXT NOT NULL,
+    titleShort TEXT NOT NULL,
+    sortOrder INTEGER NOT NULL DEFAULT 0
+);
+
+-- User's schedule (saved shows)
+CREATE TABLE ScheduleItem (
+    showId INTEGER PRIMARY KEY NOT NULL,
+    addedAt INTEGER NOT NULL,
+    FOREIGN KEY (showId) REFERENCES Show(id)
+);
+
+-- Metadata for tracking sync
+CREATE TABLE SyncMetadata (
+    key TEXT PRIMARY KEY NOT NULL,
+    value TEXT NOT NULL
+);
+
+-- Artist queries
+getAllArtists:
+SELECT * FROM Artist ORDER BY sortOrder ASC, title ASC;
+
+getArtistById:
+SELECT * FROM Artist WHERE id = ?;
+
+insertArtist:
+INSERT OR REPLACE INTO Artist(id, title, imageUrl, iconUrl, description, sortOrder)
+VALUES (?, ?, ?, ?, ?, ?);
+
+clearArtists:
+DELETE FROM Artist;
+
+-- Show queries
+getAllShows:
+SELECT * FROM Show ORDER BY startTimestamp ASC;
+
+getShowsByArtistId:
+SELECT * FROM Show WHERE artistId = ? ORDER BY startTimestamp ASC;
+
+getShowById:
+SELECT * FROM Show WHERE id = ?;
+
+getShowsByDayId:
+SELECT * FROM Show WHERE dayId = ? ORDER BY startTimestamp ASC;
+
+insertShow:
+INSERT OR REPLACE INTO Show(id, artistId, title, displayDate, stageTitle, startTimestamp, endTimestamp, stageId, dayId, sortOrder)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+clearShows:
+DELETE FROM Show;
+
+-- Stage queries
+getAllStages:
+SELECT * FROM Stage ORDER BY sortOrder ASC;
+
+insertStage:
+INSERT OR REPLACE INTO Stage(id, title, subtitle, lat, lng, sortOrder)
+VALUES (?, ?, ?, ?, ?, ?);
+
+clearStages:
+DELETE FROM Stage;
+
+-- Day queries
+getAllDays:
+SELECT * FROM Day ORDER BY sortOrder ASC;
+
+insertDay:
+INSERT OR REPLACE INTO Day(id, startTimestamp, endTimestamp, title, subtitle, titleShort, sortOrder)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+clearDays:
+DELETE FROM Day;
+
+-- Schedule queries
+getScheduledShowIds:
+SELECT showId FROM ScheduleItem;
+
+getScheduledShows:
+SELECT Show.* FROM Show
+INNER JOIN ScheduleItem ON Show.id = ScheduleItem.showId
+ORDER BY Show.startTimestamp ASC;
+
+isShowScheduled:
+SELECT COUNT(*) > 0 FROM ScheduleItem WHERE showId = ?;
+
+addToSchedule:
+INSERT OR REPLACE INTO ScheduleItem(showId, addedAt) VALUES (?, ?);
+
+removeFromSchedule:
+DELETE FROM ScheduleItem WHERE showId = ?;
+
+clearSchedule:
+DELETE FROM ScheduleItem;
+
+-- Sync metadata
+getSyncValue:
+SELECT value FROM SyncMetadata WHERE key = ?;
+
+setSyncValue:
+INSERT OR REPLACE INTO SyncMetadata(key, value) VALUES (?, ?);
