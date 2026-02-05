@@ -1,7 +1,11 @@
 package com.altears.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Person
@@ -80,7 +84,10 @@ fun App() {
             },
             contentWindowInsets = WindowInsets(0, 0, 0, 0)
         ) { innerPadding ->
-            NavHost(
+            val statusBarHeight = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
+            
+            Box(modifier = Modifier.fillMaxSize()) {
+                NavHost(
                 navController = navController,
                 startDestination = Screen.Artists.route,
                 modifier = Modifier
@@ -127,6 +134,22 @@ fun App() {
                         onNavigateBack = { navController.popBackStack() }
                     )
                 }
+            }
+                
+                // Status bar scrim - gradient fade for visibility
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(statusBarHeight * 2)
+                        .background(
+                            Brush.verticalGradient(
+                                colors = listOf(
+                                    MaterialTheme.colorScheme.background,
+                                    MaterialTheme.colorScheme.background.copy(alpha = 0f)
+                                )
+                            )
+                        )
+                )
             }
         }
     }
