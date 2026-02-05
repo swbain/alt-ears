@@ -1,7 +1,9 @@
 package com.altears.ui.shows
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
@@ -24,10 +26,11 @@ fun ShowsScreen(
 ) {
     val state by viewModel.state.collectAsState()
     
+    val statusBarPadding = WindowInsets.statusBars.asPaddingValues()
+    
     PullToRefreshBox(
         isRefreshing = state.isLoading,
-        onRefresh = { viewModel.onAction(ShowsAction.Refresh) },
-        modifier = Modifier.statusBarsPadding()
+        onRefresh = { viewModel.onAction(ShowsAction.Refresh) }
     ) {
         if (state.shows.isEmpty() && !state.isLoading) {
             Box(
@@ -45,7 +48,12 @@ fun ShowsScreen(
             
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(16.dp),
+                contentPadding = PaddingValues(
+                    top = statusBarPadding.calculateTopPadding() + 16.dp,
+                    start = 16.dp,
+                    end = 16.dp,
+                    bottom = 16.dp
+                ),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 showsByDay.forEach { (day, shows) ->
