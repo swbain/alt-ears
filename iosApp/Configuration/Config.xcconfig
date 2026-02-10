@@ -1,0 +1,7 @@
+TEAM_ID=
+
+BUNDLE_ID=com.altears.app
+APP_NAME=Alt Ears
+
+FRAMEWORK_SEARCH_PATHS=$(inherited) $(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)
+OTHER_LDFLAGS=$(inherited) -framework shared -lsqlite3
