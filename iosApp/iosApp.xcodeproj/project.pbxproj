@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -146,6 +147,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n    exit 0\nfi\n\ncp -R \"${SRCROOT}/../shared/build/xcode-frameworks/${CONFIGURATION}/${SDK_NAME}/shared.framework\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared.framework\"\n";
+			shellScript = "if [ \"${ENABLE_PREVIEWS}\" = \"YES\" ]; then\n    exit 0\nfi\n\nrm -rf \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared.framework\"\nrsync -av --delete \"${SRCROOT}/../shared/build/xcode-frameworks/${CONFIGURATION}/${SDK_NAME}/shared.framework/\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/shared.framework/\"\n\n# Define the source dSYM path\nDSYM_SOURCE=\"${SRCROOT}/../shared/build/xcode-frameworks/${CONFIGURATION}/${SDK_NAME}/shared.framework.dSYM\"\n\n# Copy dSYM to build folder (for regular builds)\nif [ -d \"${DSYM_SOURCE}\" ]; then\n    echo \"Copying dSYM from: ${DSYM_SOURCE}\"\n    rsync -avL --delete \"${DSYM_SOURCE}/\" \"${DWARF_DSYM_FOLDER_PATH}/shared.framework.dSYM/\"\nelse\n    echo \"WARNING: dSYM not found at: ${DSYM_SOURCE}\"\nfi\n\n# For archive builds, also copy to archive dSYMs folder\nif [ \"${ACTION}\" = \"install\" ] && [ -n \"${ARCHIVE_DSYMS_PATH}\" ]; then\n    echo \"Archive build detected. ACTION=${ACTION}, ARCHIVE_DSYMS_PATH=${ARCHIVE_DSYMS_PATH}\"\n\n    if [ -d \"${DSYM_SOURCE}\" ]; then\n        echo \"Copying dSYM to archive at: ${ARCHIVE_DSYMS_PATH}/shared.framework.dSYM\"\n        mkdir -p \"${ARCHIVE_DSYMS_PATH}\"\n\n        # Use -L flag to dereference symbolic links\n        rsync -avL --delete \"${DSYM_SOURCE}/\" \"${ARCHIVE_DSYMS_PATH}/shared.framework.dSYM/\"\n\n        # Verify the copy was successful and not a symlink\n        if [ -L \"${ARCHIVE_DSYMS_PATH}/shared.framework.dSYM\" ]; then\n            echo \"ERROR: Archive dSYM is still a symbolic link!\"\n            exit 1\n        elif [ -d \"${ARCHIVE_DSYMS_PATH}/shared.framework.dSYM\" ]; then\n            echo \"SUCCESS: dSYM copied to archive (not a symlink)\"\n            # Optional: verify UUID\n            if command -v dwarfdump &> /dev/null; then\n                DSYM_UUID=$(dwarfdump --uuid \"${ARCHIVE_DSYMS_PATH}/shared.framework.dSYM/Contents/Resources/DWARF/shared\" | head -1)\n                echo \"Archive dSYM UUID: ${DSYM_UUID}\"\n            fi\n        else\n            echo \"ERROR: Failed to copy dSYM to archive\"\n            exit 1\n        fi\n    else\n        echo \"ERROR: dSYM not found for archive at: ${DSYM_SOURCE}\"\n        exit 1\n    fi\nfi\n";
 		};
 		F36B1CEB2AD83DDC00CB74D5 /* Compile Kotlin Framework */ = {
 			isa = PBXShellScriptBuildPhase;

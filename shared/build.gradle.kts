@@ -24,6 +24,9 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "shared"
             isStatic = false
+            binaryOption("bundleId", "com.altears.shared")
+            // Enable light debug info for dSYM generation
+            freeCompilerArgs += listOf("-Xadd-light-debug=enable")
         }
     }
 
