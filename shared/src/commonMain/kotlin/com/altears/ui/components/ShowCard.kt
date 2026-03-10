@@ -18,7 +18,8 @@ fun ShowCard(
     show: ShowUi,
     onToggleSchedule: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    showArtistName: Boolean = true
+    showArtistName: Boolean = true,
+    showDayTitle: Boolean = false
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -45,6 +46,15 @@ fun ShowCard(
                         overflow = TextOverflow.Ellipsis
                     )
                     Spacer(modifier = Modifier.height(4.dp))
+                }
+                if (showDayTitle && show.dayTitle.isNotBlank()) {
+                    Text(
+                        text = show.dayTitle,
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.secondary,
+                        fontWeight = FontWeight.Medium
+                    )
+                    Spacer(modifier = Modifier.height(2.dp))
                 }
                 Text(
                     text = show.displayDate,

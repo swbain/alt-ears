@@ -6,7 +6,8 @@ data class ArtistUi(
     val imageUrl: String?,
     val iconUrl: String?,
     val description: String?,
-    val showCount: Int = 0
+    val showCount: Int = 0,
+    val hasScheduledShow: Boolean = false
 )
 
 data class ShowUi(

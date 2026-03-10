@@ -105,7 +105,8 @@ fun ArtistDetailScreen(
                     ShowCard(
                         show = show,
                         onToggleSchedule = { viewModel.onAction(ArtistDetailAction.ToggleSchedule(it)) },
-                        showArtistName = false
+                        showArtistName = false,
+                        showDayTitle = true
                     )
                 }
             }
